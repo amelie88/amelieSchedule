@@ -34,9 +34,9 @@ static NSString * const historyKey = @"history_Key";
                      historyKey: [[NSMutableSet alloc] init]
                      };
     }
-    return self;
+    return self; 
 }
-
+ 
 -(BOOL)addStudent:(Student *)student
 {
     if([student.course isEqualToString:@"english"]){
