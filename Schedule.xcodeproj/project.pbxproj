@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370EDF2A1716ECFF0011FCEB /* HistoryCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF291716ECFF0011FCEB /* HistoryCourse.m */; };
+		370EDF2D1716ED180011FCEB /* EnglishCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2C1716ED180011FCEB /* EnglishCourse.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
+		37C0EFDF171324A400F6250B /* StudentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFDE171324A400F6250B /* StudentService.m */; };
+		37C0EFE2171324B700F6250B /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
+		37C0EFE5171361B800F6250B /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
+		37C0EFEB1716CBE200F6250B /* Schedules.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFEA1716CBE200F6250B /* Schedules.m */; };
+		37C0EFEE1716D9E600F6250B /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,11 +33,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		370EDF281716ECFF0011FCEB /* HistoryCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCourse.h; sourceTree = "<group>"; };
+		370EDF291716ECFF0011FCEB /* HistoryCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCourse.m; sourceTree = "<group>"; };
+		370EDF2B1716ED180011FCEB /* EnglishCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnglishCourse.h; sourceTree = "<group>"; };
+		370EDF2C1716ED180011FCEB /* EnglishCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnglishCourse.m; sourceTree = "<group>"; };
 		37C0EFC91713244500F6250B /* Schedule */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Schedule; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C0EFCC1713244500F6250B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37C0EFCF1713244500F6250B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		37C0EFD21713244500F6250B /* Schedule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schedule-Prefix.pch"; sourceTree = "<group>"; };
 		37C0EFD31713244500F6250B /* Schedule.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Schedule.1; sourceTree = "<group>"; };
+		37C0EFDD171324A400F6250B /* StudentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentService.h; sourceTree = "<group>"; };
+		37C0EFDE171324A400F6250B /* StudentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentService.m; sourceTree = "<group>"; };
+		37C0EFE0171324B700F6250B /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		37C0EFE1171324B700F6250B /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		37C0EFE3171361B700F6250B /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		37C0EFE4171361B700F6250B /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		37C0EFE91716CBE200F6250B /* Schedules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedules.h; sourceTree = "<group>"; };
+		37C0EFEA1716CBE200F6250B /* Schedules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedules.m; sourceTree = "<group>"; };
+		37C0EFEC1716D9E600F6250B /* Admin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Admin.h; sourceTree = "<group>"; };
+		37C0EFED1716D9E600F6250B /* Admin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Admin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +72,7 @@
 				37C0EFCE1713244500F6250B /* Schedule */,
 				37C0EFCB1713244500F6250B /* Frameworks */,
 				37C0EFCA1713244500F6250B /* Products */,
+				37C0EFD11713244500F6250B /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,8 +96,20 @@
 			isa = PBXGroup;
 			children = (
 				37C0EFCF1713244500F6250B /* main.m */,
-				37C0EFD31713244500F6250B /* Schedule.1 */,
-				37C0EFD11713244500F6250B /* Supporting Files */,
+				37C0EFDD171324A400F6250B /* StudentService.h */,
+				37C0EFDE171324A400F6250B /* StudentService.m */,
+				37C0EFE0171324B700F6250B /* Student.h */,
+				37C0EFE1171324B700F6250B /* Student.m */,
+				37C0EFE3171361B700F6250B /* Course.h */,
+				37C0EFE4171361B700F6250B /* Course.m */,
+				37C0EFE91716CBE200F6250B /* Schedules.h */,
+				37C0EFEA1716CBE200F6250B /* Schedules.m */,
+				37C0EFEC1716D9E600F6250B /* Admin.h */,
+				37C0EFED1716D9E600F6250B /* Admin.m */,
+				370EDF281716ECFF0011FCEB /* HistoryCourse.h */,
+				370EDF291716ECFF0011FCEB /* HistoryCourse.m */,
+				370EDF2B1716ED180011FCEB /* EnglishCourse.h */,
+				370EDF2C1716ED180011FCEB /* EnglishCourse.m */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -83,9 +117,11 @@
 		37C0EFD11713244500F6250B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				37C0EFD31713244500F6250B /* Schedule.1 */,
 				37C0EFD21713244500F6250B /* Schedule-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +176,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				37C0EFD01713244500F6250B /* main.m in Sources */,
+				37C0EFDF171324A400F6250B /* StudentService.m in Sources */,
+				37C0EFE2171324B700F6250B /* Student.m in Sources */,
+				37C0EFE5171361B800F6250B /* Course.m in Sources */,
+				37C0EFEB1716CBE200F6250B /* Schedules.m in Sources */,
+				37C0EFEE1716D9E600F6250B /* Admin.m in Sources */,
+				370EDF2A1716ECFF0011FCEB /* HistoryCourse.m in Sources */,
+				370EDF2D1716ED180011FCEB /* EnglishCourse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +285,7 @@
 				37C0EFD91713244500F6250B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
