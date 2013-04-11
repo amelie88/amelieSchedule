@@ -39,7 +39,7 @@ static NSString * const historyKey = @"history_Key";
    
 -(BOOL)addStudent:(Student *)student
 {
-    if([student.course isEqualToString:@"english"]){
+    if([student.course isEqualToString:@"english"]){ 
         [students[englishKey] addObject:student];
     } else if ([student.course isEqualToString:@"math"]){
         [students[mathKey] addObject:student];
