@@ -19,7 +19,6 @@
 //-(Course *) removeCourse:(Course *)course withId:(NSString *) courseId;
 
 
--(NSSet*)filterCoursesUsingPredicate:(NSPredicate*)predicate;
 
 -(void)weekSchedule:(Student*) student;
 

@@ -34,15 +34,15 @@ int main(int argc, const char * argv[])
         
         
         
-        Course *historyMonday = [[Course alloc] initWithCourseName:@"history" time:@"10-12" teacher:@"Bert Karlsson" classroom:@"1A" chapter:@"3-5" message:@"Hej alla barn"];
-        Course *historyTuesday = [[Course alloc] initWithCourseName:@"history" time:@"12-14" teacher:@"Erik Jonsson" classroom:@"1B" chapter:@"7-8" message:@"Kom i tid!"];
+        Course *historyMonday = [[Course alloc] initWithCourseName:@"history" weekday:@"monday" time:@"10-12" teacher:@"Bert Karlsson" classroom:@"1A" chapter:@"3-5" message:@"Hej alla barn"];
+        Course *historyTuesday = [[Course alloc] initWithCourseName:@"history" weekday:@"tuesday" time:@"12-14" teacher:@"Erik Jonsson" classroom:@"1B" chapter:@"7-8" message:@"Kom i tid!"];
         
 
-        Course *english = [[Course alloc] initWithCourseName:@"english" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Halloj"];
+        Course *englishMonday = [[Course alloc] initWithCourseName:@"english" weekday:@"monday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Halloj"];
         
         [courseservice addCourse:historyMonday];
         [courseservice addCourse:historyTuesday];
-        [courseservice addCourse:english];
+        [courseservice addCourse:englishMonday];
         
 //        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"course.courseName == history"];
 //        for(Course *courses in [courseservice filterCoursesUsingPredicate:predicate]){

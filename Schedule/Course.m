@@ -13,21 +13,23 @@
 
 -(id)init
 {
-    return[self initWithCourseName:@"" time:@"" teacher:@"" classroom:@"" chapter:@"" message:@""];
+    return[self initWithCourseName:@"" weekday:@"" time:@"" teacher:@"" classroom:@"" chapter:@"" message:@""];
 }
 
 
 - (id)initWithCourseName:(NSString *)courseName
-                 time:(NSString *)time
-                    teacher:(NSString *)teacher
+                 weekday:(NSString *)weekday
+                    time:(NSString *)time
+                 teacher:(NSString *)teacher
                classroom:(NSString *)classroom
-                   chapter:(NSString *)chapter
-                    message:(NSString *)message
+                 chapter:(NSString *)chapter
+                 message:(NSString *)message
 {
     self = [super init];
     
     if (self) {
         self.courseName = courseName;
+        self.weekday = weekday;
         self.time = time;
         self.teacher = teacher;
         self.classroom = classroom;

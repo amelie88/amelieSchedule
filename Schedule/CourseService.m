@@ -55,7 +55,7 @@
 -(void)weekSchedule:(Student *)student;
 {   for (Course *course in courses) {
     if([student.course isEqualToString:course.courseName]) {
-                NSLog(@"%@ %@ %@ %@ %@ %@", course.courseName, course.time, course.teacher, course.classroom, course.chapter, course.message);
+                NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
             }
         }
 }
