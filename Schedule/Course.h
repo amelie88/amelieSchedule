@@ -11,22 +11,22 @@
 
 @interface Course : NSObject
 @property(nonatomic, copy) NSString *courseName;
+@property(nonatomic, copy) NSString *time;
 @property(nonatomic, copy) NSString *teacher;
-@property(nonatomic, copy) NSString *date;
 @property(nonatomic, copy) NSString *classroom;
 @property(nonatomic, copy) NSString *chapter;
 @property(nonatomic, copy) NSString *message;
 
 -(id)initWithCourseName:(NSString *) courseName
-                teacher:(NSString *) teacher
-                   date:(NSString *) date
+                time:(NSString *) time
+                   teacher:(NSString *) teacher
               classroom:(NSString *) classroom
                   chapter:(NSString *) chapter
                   message:(NSString *) message;
 
 //-(BOOL)writeThisDaysScheme;
 //-(BOOL)writeThisWeeksScheme;
--(BOOL)writeThisDaysTasks;
+//-(BOOL)writeThisDaysTasks;
 //-(BOOL)writeThisWeeksTasks;
 
 

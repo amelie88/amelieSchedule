@@ -13,12 +13,13 @@
 
 -(id)init
 {
-    return[self initWithCourseName:@"" teacher:@"" date:@"" classroom:@"" chapter:@"" message:@""];
+    return[self initWithCourseName:@"" time:@"" teacher:@"" classroom:@"" chapter:@"" message:@""];
 }
 
+
 - (id)initWithCourseName:(NSString *)courseName
-                 teacher:(NSString *)teacher
-                    date:(NSString *)date
+                 teacher:(NSString *)time
+                    date:(NSString *)teacher
                classroom:(NSString *)classroom
                    chapter:(NSString *)chapter
                     message:(NSString *)message
@@ -27,36 +28,14 @@
     
     if (self) {
         self.courseName = courseName;
+        self.time = time;
         self.teacher = teacher;
-        self.date = date;
         self.classroom = classroom;
         self.chapter = chapter;
         self.message = message;
     }
     return self;
 }
-
-//-(BOOL)writeThisDaysScheme
-//{
-//    NSLog(@"I %@ ska du läsa %@", self.courseName, self.dayScheme);
-//}
-//
-//-(BOOL)writeThisWeeksScheme
-//{
-//    NSLog(@"I %@ ska du läsa %@", self.courseName, self.weekScheme);
-//}
-
--(BOOL)writeThisDaysTasks
-{
-    NSLog(@"%@ A new %@-assigniment from %@: %@.", self.date, self.courseName, self.teacher, self.chapter);
-    return YES;
-}
-
-//-(BOOL)writeThisWeeksTasks
-//{
-//    NSLog(@"I %@ ska du denna vecka läsa: %@",self.tasks, self.courseName);
-//}
-
 
 
 

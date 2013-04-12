@@ -38,13 +38,4 @@
 
 
 
--(BOOL)dayTasks
-{
-    NSLog(@"%@ ID:[%@]", self.firstName, self.studentId);
-    NSLog(@"Today you have a new assignment in todays %@-class.", self.course);
-    return YES;
-}
-
-
-
 @end

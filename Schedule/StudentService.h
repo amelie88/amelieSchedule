@@ -21,7 +21,7 @@
 
 -(Student *) removeStudent:(Student *)student withId:(NSString *) studentId;
 
--(void)weekdaySchedule:(NSString*)weekday : (Student*) student;
+//-(void)weekdaySchedule:(NSString*)weekday : (Student*) student;
 
 //-(void)updateMessage:(NSString*)message : (Admin*) admin;
 

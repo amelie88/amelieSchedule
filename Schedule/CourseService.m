@@ -7,19 +7,19 @@
 //
 
 #import "CourseService.h"
+#import "Course.h"
 #import "Student.h"
 
-@implementation CourseService
 
-static NSString * const englishKey = @"english_key";
-static NSString * const mathKey = @"math_key";
-static NSString * const historyKey = @"history_Key";
+//static NSString * const englishKey = @"english_key";
+//static NSString * const mathKey = @"math_key";
+//static NSString * const historyKey = @"history_Key";
 
 @implementation CourseService
 {
-    NSDictionary *courses;
+    NSMutableArray *courses;
 }
-//comment
+
 - (id)init
 {
     return [self initWithCourses:@[]];
@@ -30,44 +30,33 @@ static NSString * const historyKey = @"history_Key";
     self = [super init];
     
     if (self) {
-        courses = @{englishKey: [[NSMutableSet alloc] init],
-                     mathKey: [[NSMutableSet alloc] init],
-                     historyKey: [[NSMutableSet alloc] init]
-                     };
+        courses = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
--(BOOL)addCourse:(Course *)course
+-(void)addCourse:(Course *)course
 {
-    if([student.course isEqualToString:@"english"]){
-        [students[englishKey] addObject:student];
-    } else if ([student.course isEqualToString:@"math"]){
-        [students[mathKey] addObject:student];
-    } else {
-        [students[historyKey] addObject:student];
-    }
-    return YES;
+    [courses addObject:course];
 }
 
--(Student *) removeStudent:(Student *)student withId:(NSString *)studentId
+-(NSSet*) filterCoursesUsingPredicate:(NSPredicate *)predicate
 {
-    if(students[studentId])
-    {
-        Student *removedStudent = students[studentId];
-        
-        if([student.course isEqualToString:@"english"]){
-            [students[englishKey] removeObject:student];
-            return removedStudent;
-        } else if ([student.course isEqualToString:@"math"]){
-            [students[mathKey] removeObject:student];
-            return removedStudent;
-        } else {
-            [students[historyKey] removeObject:student];
-            return removedStudent;
-        }
-    }
-    return nil;
+    return [[self allCourses] filteredUsingPredicate:predicate];
+}
+
+//NSPredicate *predicate = [NSPredicate predicateWithFormat:@"student.course == history];
+
+
+
+-(void)todaySchedule:(Student *)student :(Course*) course;
+{   for (Course *course in courses) {
+    if([student.course isEqualToString:course.courseName]) {
+//        for (Course *course in courses) {
+//            if([course.courseName isEqualToString:@"history"]){
+                NSLog(@"%@ %@ %@ %@ %@ %@", course.courseName, course.time, course.teacher, course.classroom, course.chapter, course.message);
+            }
+}
 }
 
 

@@ -14,10 +14,15 @@
 
 -(id)initWithCourses:(NSArray *) courses;
 
--(BOOL)addCourse:(Course *)course;
+-(void)addCourse:(Course *)course;
 
--(Course *) removeCourse:(Course *)course withId:(NSString *) courseId;
+//-(Course *) removeCourse:(Course *)course withId:(NSString *) courseId;
 
--(void)weekdaySchedule:(NSString*)weekday : (Student*) student;
+
+-(NSSet*) allCourses;
+
+-(NSSet*)filterCoursesUsingPredicate:(NSPredicate*)predicate;
+
+-(void)todaySchedule:(Student*) student : (Course*) course;
 
 @end
