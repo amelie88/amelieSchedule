@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370EDF30171801970011FCEB /* CourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2F171801970011FCEB /* CourseService.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
 		37C0EFDF171324A400F6250B /* StudentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFDE171324A400F6250B /* StudentService.m */; };
 		37C0EFE2171324B700F6250B /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
 		37C0EFE5171361B800F6250B /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
-		37C0EFEB1716CBE200F6250B /* Schedules.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFEA1716CBE200F6250B /* Schedules.m */; };
 		37C0EFEE1716D9E600F6250B /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		370EDF2E171801970011FCEB /* CourseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseService.h; sourceTree = "<group>"; };
+		370EDF2F171801970011FCEB /* CourseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseService.m; sourceTree = "<group>"; };
 		37C0EFC91713244500F6250B /* Schedule */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Schedule; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C0EFCC1713244500F6250B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37C0EFCF1713244500F6250B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,8 +44,6 @@
 		37C0EFE1171324B700F6250B /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		37C0EFE3171361B700F6250B /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		37C0EFE4171361B700F6250B /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
-		37C0EFE91716CBE200F6250B /* Schedules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedules.h; sourceTree = "<group>"; };
-		37C0EFEA1716CBE200F6250B /* Schedules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedules.m; sourceTree = "<group>"; };
 		37C0EFEC1716D9E600F6250B /* Admin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Admin.h; sourceTree = "<group>"; };
 		37C0EFED1716D9E600F6250B /* Admin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Admin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,14 +90,14 @@
 			isa = PBXGroup;
 			children = (
 				37C0EFCF1713244500F6250B /* main.m */,
-				37C0EFDD171324A400F6250B /* StudentService.h */,
-				37C0EFDE171324A400F6250B /* StudentService.m */,
 				37C0EFE0171324B700F6250B /* Student.h */,
 				37C0EFE1171324B700F6250B /* Student.m */,
+				37C0EFDD171324A400F6250B /* StudentService.h */,
+				37C0EFDE171324A400F6250B /* StudentService.m */,
 				37C0EFE3171361B700F6250B /* Course.h */,
 				37C0EFE4171361B700F6250B /* Course.m */,
-				37C0EFE91716CBE200F6250B /* Schedules.h */,
-				37C0EFEA1716CBE200F6250B /* Schedules.m */,
+				370EDF2E171801970011FCEB /* CourseService.h */,
+				370EDF2F171801970011FCEB /* CourseService.m */,
 				37C0EFEC1716D9E600F6250B /* Admin.h */,
 				37C0EFED1716D9E600F6250B /* Admin.m */,
 			);
@@ -169,8 +169,8 @@
 				37C0EFDF171324A400F6250B /* StudentService.m in Sources */,
 				37C0EFE2171324B700F6250B /* Student.m in Sources */,
 				37C0EFE5171361B800F6250B /* Course.m in Sources */,
-				37C0EFEB1716CBE200F6250B /* Schedules.m in Sources */,
 				37C0EFEE1716D9E600F6250B /* Admin.m in Sources */,
+				370EDF30171801970011FCEB /* CourseService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

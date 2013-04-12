@@ -1,45 +1,46 @@
 //
-//  StudentService.m
+//  CourseService.m
 //  Schedule
 //
-//  Created by Sjostrand Gereholt Amelie on 2013-04-08.
+//  Created by Sjostrand Gereholt Amelie on 2013-04-12.
 //  Copyright (c) 2013 Sjostrand Gereholt Amelie. All rights reserved.
 //
 
-#import "StudentService.h"
+#import "CourseService.h"
 #import "Student.h"
 
+@implementation CourseService
 
 static NSString * const englishKey = @"english_key";
 static NSString * const mathKey = @"math_key";
 static NSString * const historyKey = @"history_Key";
 
-@implementation StudentService
+@implementation CourseService
 {
-    NSDictionary *students;
+    NSDictionary *courses;
 }
-//comment 
+//comment
 - (id)init
 {
-    return [self initWithStudents:@[]];
+    return [self initWithCourses:@[]];
 }
 
-- (id)initWithStudents:(NSArray *)studentsToAdd
+- (id)initWithCourses:(NSArray *)coursesToAdd
 {
     self = [super init];
     
     if (self) {
-        students = @{englishKey: [[NSMutableSet alloc] init],
+        courses = @{englishKey: [[NSMutableSet alloc] init],
                      mathKey: [[NSMutableSet alloc] init],
                      historyKey: [[NSMutableSet alloc] init]
                      };
     }
-    return self; 
+    return self;
 }
-   
--(BOOL)addStudent:(Student *)student
+
+-(BOOL)addCourse:(Course *)course
 {
-    if([student.course isEqualToString:@"english"]){ 
+    if([student.course isEqualToString:@"english"]){
         [students[englishKey] addObject:student];
     } else if ([student.course isEqualToString:@"math"]){
         [students[mathKey] addObject:student];
@@ -70,36 +71,5 @@ static NSString * const historyKey = @"history_Key";
 }
 
 
-
-
-
-
-//-(void)updateMessage:(NSString *)message :(Admin *)admin
-//{
-//    if([admin.password is isEqualToString@"hej"]){
-//        .message
-//    }
-//    
-//}
-
-//-(Student *) updateStudentWithId:(NSString *) studentId
-//{
-//
-//}
-
-//-(void)logAllStudents:(NSDictionary *)studentsToLog
-//{
-//    for (Student *student in students)
-//    {
-//        NSLog(@"Student %@ %@ har ID: [%@]", student.firstName, student.lastName, student.studentId);
-//    }
-//}
-
-//-(void)printUsers
-//{
-//    for (User *user in users) {
-//        NSLog(@"Användare %@ har ID: %@", user.name, user.userId);
-//    }
-//}
 
 @end
