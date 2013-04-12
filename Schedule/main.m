@@ -55,7 +55,7 @@ int main(int argc, const char * argv[])
 //        [students removeStudent:student4 withId:@"8110212D-AF76-4945-A321-B21721A82873"];
 //        NSLog(@"Student %@ %@ was removed", student4.firstName, student4.lastName);
         
-                [courseservice historyWeekSchedule:student1];
+                [courseservice weekSchedule:student4];
         
     }
     return 0;

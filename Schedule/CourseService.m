@@ -52,14 +52,12 @@
 
 
 
--(void)historyWeekSchedule:(Student *)student;
+-(void)weekSchedule:(Student *)student;
 {   for (Course *course in courses) {
     if([student.course isEqualToString:course.courseName]) {
-//        for (Course *course in courses) {
-//            if([course.courseName isEqualToString:@"history"]){
                 NSLog(@"%@ %@ %@ %@ %@ %@", course.courseName, course.time, course.teacher, course.classroom, course.chapter, course.message);
             }
-}
+        }
 }
 
 
