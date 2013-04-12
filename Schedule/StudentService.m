@@ -69,6 +69,10 @@ static NSString * const historyKey = @"history_Key";
     return nil;
 }
 
+
+
+
+
 //-(void)updateMessage:(NSString *)message :(Admin *)admin
 //{
 //    if([admin.password is isEqualToString@"hej"]){

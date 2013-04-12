@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		370EDF2A1716ECFF0011FCEB /* HistoryCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF291716ECFF0011FCEB /* HistoryCourse.m */; };
-		370EDF2D1716ED180011FCEB /* EnglishCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2C1716ED180011FCEB /* EnglishCourse.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
@@ -33,10 +31,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		370EDF281716ECFF0011FCEB /* HistoryCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCourse.h; sourceTree = "<group>"; };
-		370EDF291716ECFF0011FCEB /* HistoryCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCourse.m; sourceTree = "<group>"; };
-		370EDF2B1716ED180011FCEB /* EnglishCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnglishCourse.h; sourceTree = "<group>"; };
-		370EDF2C1716ED180011FCEB /* EnglishCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnglishCourse.m; sourceTree = "<group>"; };
 		37C0EFC91713244500F6250B /* Schedule */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Schedule; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C0EFCC1713244500F6250B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37C0EFCF1713244500F6250B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,10 +100,6 @@
 				37C0EFEA1716CBE200F6250B /* Schedules.m */,
 				37C0EFEC1716D9E600F6250B /* Admin.h */,
 				37C0EFED1716D9E600F6250B /* Admin.m */,
-				370EDF281716ECFF0011FCEB /* HistoryCourse.h */,
-				370EDF291716ECFF0011FCEB /* HistoryCourse.m */,
-				370EDF2B1716ED180011FCEB /* EnglishCourse.h */,
-				370EDF2C1716ED180011FCEB /* EnglishCourse.m */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -181,8 +171,6 @@
 				37C0EFE5171361B800F6250B /* Course.m in Sources */,
 				37C0EFEB1716CBE200F6250B /* Schedules.m in Sources */,
 				37C0EFEE1716D9E600F6250B /* Admin.m in Sources */,
-				370EDF2A1716ECFF0011FCEB /* HistoryCourse.m in Sources */,
-				370EDF2D1716ED180011FCEB /* EnglishCourse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

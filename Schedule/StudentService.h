@@ -10,7 +10,6 @@
 #import "Student.h"
 #import "Course.h"
 #import "Admin.h"
-#import "HistoryCourse.h"
 
 
 
@@ -22,7 +21,7 @@
 
 -(Student *) removeStudent:(Student *)student withId:(NSString *) studentId;
 
--(void)updateMessage:(NSString*)message : (Admin*) admin;
+//-(void)updateMessage:(NSString*)message : (Admin*) admin;
 
 //-(Student *) updateStudentWithId:(NSString *) studentId;
 //-(void)logAllStudents:(NSDictionary *)students;
