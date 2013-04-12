@@ -41,7 +41,7 @@ int main(int argc, const char * argv[])
         Course *english = [[Course alloc] initWithCourseName:@"english" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Halloj"];
         
         [courseservice addCourse:historyMonday];
-        [courseservice addCourse:historyMonday];
+        [courseservice addCourse:historyTuesday];
         [courseservice addCourse:english];
         
 //        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"course.courseName == history"];
@@ -55,7 +55,7 @@ int main(int argc, const char * argv[])
 //        [students removeStudent:student4 withId:@"8110212D-AF76-4945-A321-B21721A82873"];
 //        NSLog(@"Student %@ %@ was removed", student4.firstName, student4.lastName);
         
-                [courseservice todaySchedule:student1:historyMonday];
+                [courseservice historyWeekSchedule:student1];
         
     }
     return 0;

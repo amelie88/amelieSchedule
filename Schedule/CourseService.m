@@ -52,7 +52,7 @@
 
 
 
--(void)todaySchedule:(Student *)student :(Course*) course;
+-(void)historyWeekSchedule:(Student *)student;
 {   for (Course *course in courses) {
     if([student.course isEqualToString:course.courseName]) {
 //        for (Course *course in courses) {

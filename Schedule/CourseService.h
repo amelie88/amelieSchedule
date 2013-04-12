@@ -23,6 +23,6 @@
 
 -(NSSet*)filterCoursesUsingPredicate:(NSPredicate*)predicate;
 
--(void)todaySchedule:(Student*) student : (Course*) course;
+-(void)historyWeekSchedule:(Student*) student;
 
 @end
