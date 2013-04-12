@@ -60,6 +60,14 @@
         }
 }
 
+-(void)scheduleForDay:(NSString*)weekday : (Student*) student;
+{   for (Course *course in courses) {
+    if([course.weekday isEqualToString:weekday]) {
+        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+    }
+}
+}
+
 
 
 @end

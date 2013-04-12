@@ -21,5 +21,6 @@
 
 
 -(void)weekSchedule:(Student*) student;
+-(void)scheduleForDay:(NSString*)weekday : (Student*) student;
 
 @end
