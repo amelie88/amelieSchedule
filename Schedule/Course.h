@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Student;
 
 @interface Course : NSObject
 @property(nonatomic, copy) NSString *courseName;
@@ -23,11 +22,6 @@
               classroom:(NSString *) classroom
                   chapter:(NSString *) chapter
                   message:(NSString *) message;
-
-//-(BOOL)writeThisDaysScheme;
-//-(BOOL)writeThisWeeksScheme;
-//-(BOOL)writeThisDaysTasks;
-//-(BOOL)writeThisWeeksTasks;
 
 
 @end

@@ -19,12 +19,13 @@ int main(int argc, const char * argv[])
     @autoreleasepool {
         
         CourseService *courseservice = [[CourseService alloc] init];
+        StudentService *studentservice = [[StudentService alloc] init];
         Student *student1 = [[Student alloc] initWithLastName:@"Gereholt" firstName:@"Amelie" course:@"history"];
         Student *student2 = [[Student alloc] initWithLastName:@"Bergkvist" firstName:@"Kristoffer" course:@"history"];
         Student *student3 = [[Student alloc] initWithLastName:@"Hagfeldt" firstName:@"Jens" course:@"math"];
         Student *student4 = [[Student alloc] initWithLastName:@"Emma" firstName:@"Johansson" course:@"english"];
         
-        StudentService *studentservice = [[StudentService alloc] init];
+        
         
         [studentservice addStudent:student1];
         [studentservice addStudent:student2];
@@ -34,20 +35,27 @@ int main(int argc, const char * argv[])
         
         
         Course *historyMonday = [[Course alloc] initWithCourseName:@"history" time:@"10-12" teacher:@"Bert Karlsson" classroom:@"1A" chapter:@"3-5" message:@"Hej alla barn"];
+        Course *historyTuesday = [[Course alloc] initWithCourseName:@"history" time:@"12-14" teacher:@"Erik Jonsson" classroom:@"1B" chapter:@"7-8" message:@"Kom i tid!"];
         
-//               [studentservice todaySchedule:student1:history];
-                Course *english = [[Course alloc] initWithCourseName:@"english" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Halloj"];
+
+        Course *english = [[Course alloc] initWithCourseName:@"english" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Halloj"];
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"course.courseName == history"];
-        for(Course *course in [courseservice filterCoursesUsingPredicate:predicate]){
-                   NSLog(@"%@", course.time);
-               }
+        [courseservice addCourse:historyMonday];
+        [courseservice addCourse:historyMonday];
+        [courseservice addCourse:english];
+        
+//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"course.courseName == history"];
+//        for(Course *courses in [courseservice filterCoursesUsingPredicate:predicate]){
+//                   NSLog(@"%@", courses.time);
+//               }
 
         
        
         
 //        [students removeStudent:student4 withId:@"8110212D-AF76-4945-A321-B21721A82873"];
 //        NSLog(@"Student %@ %@ was removed", student4.firstName, student4.lastName);
+        
+                [courseservice todaySchedule:student1:historyMonday];
         
     }
     return 0;

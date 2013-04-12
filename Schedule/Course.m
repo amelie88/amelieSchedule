@@ -18,8 +18,8 @@
 
 
 - (id)initWithCourseName:(NSString *)courseName
-                 teacher:(NSString *)time
-                    date:(NSString *)teacher
+                 time:(NSString *)time
+                    teacher:(NSString *)teacher
                classroom:(NSString *)classroom
                    chapter:(NSString *)chapter
                     message:(NSString *)message

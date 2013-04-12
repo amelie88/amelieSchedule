@@ -40,10 +40,13 @@
     [courses addObject:course];
 }
 
--(NSSet*) filterCoursesUsingPredicate:(NSPredicate *)predicate
-{
-    return [[self allCourses] filteredUsingPredicate:predicate];
-}
+
+
+
+//-(NSSet*) filterCoursesUsingPredicate:(NSPredicate *)predicate
+//{
+//    return [[self courses] filteredSetUsingPredicate:predicate];
+//}
 
 //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"student.course == history];
 
