@@ -24,6 +24,7 @@
 
 -(void) save:(NSString*)urlString;
 -(void) read:(NSString*)urlString;
+-(NSSet*) allStudents;
 
 
 @end

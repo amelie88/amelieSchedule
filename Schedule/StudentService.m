@@ -8,7 +8,7 @@
 
 #import "StudentService.h"
 #import "Student.h"
-#import "Studen+Json.h" 
+#import "Student+Json.h" 
 
 
 static NSString * const englishKey = @"english_key";
@@ -79,6 +79,7 @@ static NSString * const historyKey = @"history_Key";
 
 -(void)save:(NSString *)urlString
 {
+    // why does it not recognize serializeCollection.. ?
     NSDictionary *scheduleAsJson = @{@"students" : [self serializeCollectionToJson:[self allStudents]]};
     NSData *scheduleAsData = [NSJSONSerialization dataWithJSONObject:scheduleAsJson options:NSJSONWritingPrettyPrinted error:NULL];
     
@@ -98,6 +99,16 @@ static NSString * const historyKey = @"history_Key";
             [self addStudent:[Student studentFromJson:student]];
         }
     }
+}
+
+-(NSArray*)serializeCollectionToJson:(id) objects
+{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    for(id<JsonFormat> object in objects) {
+        [result addObject:[object jsonValue]];
+    }
+    return result;
 }
 
 -(NSSet*) allStudents
