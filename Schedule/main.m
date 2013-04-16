@@ -60,7 +60,7 @@ int main(int argc, const char * argv[])
         
 //         [storage saveStudent:Amelie];
         
-        [studentservice save:@"/Users/sjostrandgereholtamelie/Desktop/zoo2.json"];
+        [studentservice save];
         
     }
     return 0;

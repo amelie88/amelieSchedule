@@ -22,7 +22,7 @@
 
 -(Student *) removeStudent:(Student *)student withId:(NSString *) studentId;
 
--(void) save:(NSString*)urlString;
+-(void) save;
 -(void) read:(NSString*)urlString;
 -(NSSet*) allStudents;
 

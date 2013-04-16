@@ -77,16 +77,32 @@ static NSString * const historyKey = @"history_Key";
 }
 
 
--(void)save:(NSString *)urlString
+-(void)save;
 {
-    // why does it not recognize serializeCollection.. ?
+    
     NSDictionary *scheduleAsJson = @{@"students" : [self serializeCollectionToJson:[self allStudents]]};
     NSData *scheduleAsData = [NSJSONSerialization dataWithJSONObject:scheduleAsJson options:NSJSONWritingPrettyPrinted error:NULL];
     
-    // instead of this, nsurlconnection
-    [scheduleAsData writeToFile:urlString atomically:YES];
+    //initialize url that is going to be fetched.
+    NSURL *url = [NSURL URLWithString:@"http://amelie.iriscouch.com/student_db"];
+    
+    //initialize a request from url
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
+    
+    //set http method
+    [request setHTTPMethod:@"POST"];
+    //initialize a post data
+    
+    
+    [request setValue:@"application" forHTTPHeaderField:@"Content-Type"];
+    
+    //set post data of request
+    [request setHTTPBody:scheduleAsData];
                     
 }
+
+
+
 
 -(void)read:(NSString *)urlString
 {
