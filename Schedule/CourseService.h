@@ -13,13 +13,7 @@
 @interface CourseService : NSObject
 
 -(id)initWithCourses:(NSArray *) courses;
-
 -(void)addCourse:(Course *)course;
-
-//-(Course *) removeCourse:(Course *)course withId:(NSString *) courseId;
-
-
-
 -(void)weekSchedule:(Student*) student;
 -(void)scheduleForDay:(NSString*)weekday : (Student*) student;
 

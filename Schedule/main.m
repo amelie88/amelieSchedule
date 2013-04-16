@@ -12,6 +12,7 @@
 #import "Course.h"
 #import "CourseService.h"
 #import "Admin.h"
+#import "Storage.h"
 
 int main(int argc, const char * argv[])
 {
@@ -20,6 +21,7 @@ int main(int argc, const char * argv[])
         
         CourseService *courseservice = [[CourseService alloc] init];
         StudentService *studentservice = [[StudentService alloc] init];
+        Storage *storage = [[Storage alloc] init];
         
         Student *Amelie = [[Student alloc] initWithLastName:@"Gereholt" firstName:@"Amelie" course:@"history"];
         Student *Kristoffer = [[Student alloc] initWithLastName:@"Bergkvist" firstName:@"Kristoffer" course:@"history"];
@@ -55,6 +57,8 @@ int main(int argc, const char * argv[])
         
         [courseservice weekSchedule:Jens];
         [courseservice scheduleForDay:@"friday":Amelie];
+        
+        [storage saveStudent:Amelie];
         
     }
     return 0;

@@ -10,6 +10,7 @@
 #import "Student.h"
 #import "Course.h"
 #import "Admin.h"
+#import "Storage.h"
 
 
 
@@ -21,12 +22,8 @@
 
 -(Student *) removeStudent:(Student *)student withId:(NSString *) studentId;
 
-//-(void)weekdaySchedule:(NSString*)weekday : (Student*) student;
-
-//-(void)updateMessage:(NSString*)message : (Admin*) admin;
-
-//-(Student *) updateStudentWithId:(NSString *) studentId;
-//-(void)logAllStudents:(NSDictionary *)students;
+-(void) save:(NSString*)urlString;
+-(void) read:(NSString*)urlString;
 
 
 @end

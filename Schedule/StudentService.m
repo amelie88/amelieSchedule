@@ -8,6 +8,7 @@
 
 #import "StudentService.h"
 #import "Student.h"
+#import "Studen+Json.h"
 
 
 static NSString * const englishKey = @"english_key";
@@ -18,7 +19,7 @@ static NSString * const historyKey = @"history_Key";
 {
     NSDictionary *students;
 }
-//comment 
+
 - (id)init
 {
     return [self initWithStudents:@[]];
@@ -33,7 +34,13 @@ static NSString * const historyKey = @"history_Key";
                      mathKey: [[NSMutableSet alloc] init],
                      historyKey: [[NSMutableSet alloc] init]
                      };
+    
+    
+    for(Student *student in studentsToAdd) {
+        [self addStudent:student];
     }
+
+  }
     return self; 
 }
    
@@ -70,36 +77,35 @@ static NSString * const historyKey = @"history_Key";
 }
 
 
+-(void)save:(NSString *)urlString
+{
+    NSDictionary *scheduleAsJson = @{@"students" : [self serializeCollectionToJson:[self allStudents]]};
+    NSData *scheduleAsData = [NSJSONSerialization dataWithJSONObject:scheduleAsJson options:NSJSONWritingPrettyPrinted error:NULL];
+    
+    // instead of this, nsurlconnection
+    [scheduleAsData writeToFile:urlString atomically:YES];
+                    
+}
+
+-(void)read:(NSString *)urlString
+{
+    NSData *scheduleAsData = [NSData dataWithContentsOfFile:urlString];
+    
+    if(scheduleAsData){
+        NSDictionary *scheduleAsJson = [NSJSONSerialization JSONObjectWithData:scheduleAsData options:0 error:NULL];
+        
+        for(NSDictionary *student in scheduleAsJson[@"students"]){
+            [self addStudent:[Student studentFromJson:student]];
+        }
+    }
+}
+
+-(NSSet*) allStudents
+{
+    //how to add more than one set?
+    return [students[englishKey] setByAddingObjectsFromSet:students[historyKey]];
+}
 
 
-
-
-//-(void)updateMessage:(NSString *)message :(Admin *)admin
-//{
-//    if([admin.password is isEqualToString@"hej"]){
-//        .message
-//    }
-//    
-//}
-
-//-(Student *) updateStudentWithId:(NSString *) studentId
-//{
-//
-//}
-
-//-(void)logAllStudents:(NSDictionary *)studentsToLog
-//{
-//    for (Student *student in students)
-//    {
-//        NSLog(@"Student %@ %@ har ID: [%@]", student.firstName, student.lastName, student.studentId);
-//    }
-//}
-
-//-(void)printUsers
-//{
-//    for (User *user in users) {
-//        NSLog(@"Användare %@ har ID: %@", user.name, user.userId);
-//    }
-//}
 
 @end

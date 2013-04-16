@@ -20,12 +20,8 @@
             firstName:(NSString *) firstName
                course:(NSString *) course;
 
-// Get-metoder som hämtar schema och läsanvisningar från Course
-//-(BOOL)dayScheme;
-//-(BOOL)weekScheme;
-//-(BOOL)dayTasks;
-//-(BOOL)weekTasks;
 
++(id)studentFromJson:(NSDictionary*) studentAsJson;
 
 
 @end

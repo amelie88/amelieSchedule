@@ -11,9 +11,6 @@
 #import "Student.h"
 
 
-//static NSString * const englishKey = @"english_key";
-//static NSString * const mathKey = @"math_key";
-//static NSString * const historyKey = @"history_Key";
 
 @implementation CourseService
 {
@@ -40,15 +37,6 @@
     [courses addObject:course];
 }
 
-
-
-
-//-(NSSet*) filterCoursesUsingPredicate:(NSPredicate *)predicate
-//{
-//    return [[self courses] filteredSetUsingPredicate:predicate];
-//}
-
-//NSPredicate *predicate = [NSPredicate predicateWithFormat:@"student.course == history];
 
 
 

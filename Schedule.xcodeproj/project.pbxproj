@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		370EDF30171801970011FCEB /* CourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2F171801970011FCEB /* CourseService.m */; };
+		37724658171D8CEE00B2F227 /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 37724657171D8CEE00B2F227 /* Storage.m */; };
+		3772465C171DADDA00B2F227 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
@@ -33,6 +35,11 @@
 /* Begin PBXFileReference section */
 		370EDF2E171801970011FCEB /* CourseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseService.h; sourceTree = "<group>"; };
 		370EDF2F171801970011FCEB /* CourseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseService.m; sourceTree = "<group>"; };
+		37724656171D8CEE00B2F227 /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
+		37724657171D8CEE00B2F227 /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
+		37724659171DADB700B2F227 /* JsonFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFormat.h; sourceTree = "<group>"; };
+		3772465A171DADD900B2F227 /* Student+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Student+Json.h"; sourceTree = "<group>"; };
+		3772465B171DADD900B2F227 /* Student+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Student+Json.m"; sourceTree = "<group>"; };
 		37C0EFC91713244500F6250B /* Schedule */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Schedule; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C0EFCC1713244500F6250B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37C0EFCF1713244500F6250B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,6 +107,11 @@
 				370EDF2F171801970011FCEB /* CourseService.m */,
 				37C0EFEC1716D9E600F6250B /* Admin.h */,
 				37C0EFED1716D9E600F6250B /* Admin.m */,
+				37724656171D8CEE00B2F227 /* Storage.h */,
+				37724657171D8CEE00B2F227 /* Storage.m */,
+				37724659171DADB700B2F227 /* JsonFormat.h */,
+				3772465A171DADD900B2F227 /* Student+Json.h */,
+				3772465B171DADD900B2F227 /* Student+Json.m */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -171,6 +183,8 @@
 				37C0EFE5171361B800F6250B /* Course.m in Sources */,
 				37C0EFEE1716D9E600F6250B /* Admin.m in Sources */,
 				370EDF30171801970011FCEB /* CourseService.m in Sources */,
+				37724658171D8CEE00B2F227 /* Storage.m in Sources */,
+				3772465C171DADDA00B2F227 /* Student+Json.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
