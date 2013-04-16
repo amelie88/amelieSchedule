@@ -58,7 +58,7 @@ int main(int argc, const char * argv[])
         [courseservice weekSchedule:Jens];
         [courseservice scheduleForDay:@"friday":Amelie];
         
-//        [storage saveStudent:Amelie];
+//         [storage saveStudent:Amelie];
         
         [studentservice save:@"/Users/sjostrandgereholtamelie/Desktop/zoo2.json"];
         
