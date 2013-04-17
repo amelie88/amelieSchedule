@@ -83,6 +83,8 @@ static NSString * const historyKey = @"history_Key";
     NSDictionary *scheduleAsJson = @{@"students" : [self serializeCollectionToJson:[self allStudents]]};
     NSData *scheduleAsData = [NSJSONSerialization dataWithJSONObject:scheduleAsJson options:NSJSONWritingPrettyPrinted error:NULL];
     
+    
+    
     //initialize url that is going to be fetched.
     NSURL *url = [NSURL URLWithString:@"http://amelie.iriscouch.com/student_db"];
     
@@ -90,14 +92,20 @@ static NSString * const historyKey = @"history_Key";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
     
     //set http method
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:@"POST"]; 
     //initialize a post data
     
     
-    [request setValue:@"application" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     //set post data of request
     [request setHTTPBody:scheduleAsData];
+    
+    NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:nil];
+    [connection start];
+    
+    NSRunLoop *loop = [NSRunLoop currentRunLoop];
+    [loop run];
                     
 }
 

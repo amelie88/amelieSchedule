@@ -21,7 +21,7 @@
     return student;
 }
 
--(id)init
+-(id)init 
 {
     return [self initWithLastName:@"" firstName:@"" course:@""];
 }
