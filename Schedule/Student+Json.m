@@ -19,7 +19,7 @@
     selfAsJson[@"firstName"] = self.firstName;
     selfAsJson[@"course"] = self.course;
     
-    return selfAsJson;
+    return selfAsJson; 
 }
 
 @end
