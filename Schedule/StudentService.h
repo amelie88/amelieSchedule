@@ -20,11 +20,14 @@
 
 -(BOOL)addStudent:(Student *)student;
 
--(Student *) removeStudent:(Student *)student withId:(NSString *) studentId;
+-(Student *) removeStudent:(Student *)student withId:(NSString *) _id;
 
--(void) save;
--(void) read:(NSString*)urlString;
+-(void) save:(Student*) student;
+-(void) read;
 -(NSSet*) allStudents;
 
+typedef void (^AllStudentsResponse)(NSArray *allReadStudents);
+
+-(void)getFromDatabase:(NSString*)studentId onCompletion:(AllStudentsResponse) allStudentsResponse;
 
 @end

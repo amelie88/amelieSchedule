@@ -18,6 +18,7 @@ static NSString * const historyKey = @"history_Key";
 @implementation StudentService
 {
     NSDictionary *students;
+    NSOperationQueue *queue;
 }
 
 - (id)init
@@ -34,7 +35,7 @@ static NSString * const historyKey = @"history_Key";
                      mathKey: [[NSMutableSet alloc] init],
                      historyKey: [[NSMutableSet alloc] init]
                      };
-    
+        queue = [[NSOperationQueue alloc] init];
     
     for(Student *student in studentsToAdd) {
         [self addStudent:student];
@@ -77,13 +78,11 @@ static NSString * const historyKey = @"history_Key";
 }
 
 
--(void)save;
+-(void)save:(Student*) student
 {
     
-    NSDictionary *scheduleAsJson = @{@"students" : [self serializeCollectionToJson:[self allStudents]]};
+    NSDictionary *scheduleAsJson = [self serializeObjectToJson:student];
     NSData *scheduleAsData = [NSJSONSerialization dataWithJSONObject:scheduleAsJson options:NSJSONWritingPrettyPrinted error:NULL];
-    
-    
     
     //initialize url that is going to be fetched.
     NSURL *url = [NSURL URLWithString:@"http://amelie.iriscouch.com/student_db"];
@@ -92,10 +91,9 @@ static NSString * const historyKey = @"history_Key";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
     
     //set http method
-    [request setHTTPMethod:@"POST"]; 
+    [request setHTTPMethod:@"POST"];
+    
     //initialize a post data
-    
-    
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     //set post data of request
@@ -109,31 +107,59 @@ static NSString * const historyKey = @"history_Key";
                     
 }
 
+//-(NSArray*)serializeCollectionToJson:(id) objects
+//{
+//    NSMutableArray *result = [[NSMutableArray alloc] init];
+//    
+//    for(id<JsonFormat> object in objects) {
+//        [result addObject:[object jsonValue]];
+//    }
+//    return result;
+//}
 
-
-
--(void)read:(NSString *)urlString
+-(id)serializeObjectToJson:(id) object
 {
-    NSData *scheduleAsData = [NSData dataWithContentsOfFile:urlString];
-    
-    if(scheduleAsData){
-        NSDictionary *scheduleAsJson = [NSJSONSerialization JSONObjectWithData:scheduleAsData options:0 error:NULL];
-        
-        for(NSDictionary *student in scheduleAsJson[@"students"]){
-            [self addStudent:[Student studentFromJson:student]];
-        }
-    }
-}
-
--(NSArray*)serializeCollectionToJson:(id) objects
-{
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    
-    for(id<JsonFormat> object in objects) {
-        [result addObject:[object jsonValue]];
-    }
+    NSObject *result = [[NSObject alloc] init];
+    result = [object jsonValue];
     return result;
 }
+
+
+-(void)read
+{
+    //    NSData *scheduleAsData = [NSData dataWithContentsOfFile:urlString];
+    //
+    //    if(scheduleAsData){
+    //        NSDictionary *scheduleAsJson = [NSJSONSerialization JSONObjectWithData:scheduleAsData options:0 error:NULL];
+    //
+    //        for(NSDictionary *student in scheduleAsJson[@"students"]){
+    //            [self addStudent:[Student studentFromJson:student]];
+    ////        }
+    //    }
+    //    NSData *scheduleAsData = NSData
+}
+
+
+-(void)getFromDatabase:(NSString *)studentId onCompletion:(AllStudentsResponse)allStudentsResponse
+{
+
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/student_db/%@", studentId]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+        //Parse response from Json to custom job object and add it to an NSArray
+        NSArray *readStudents = @[data];
+        
+        // Execute the block which was sent as an argument. This will "call back" to caller
+        allStudentsResponse(readStudents);
+    }];
+}
+
+
 
 -(NSSet*) allStudents
 {
