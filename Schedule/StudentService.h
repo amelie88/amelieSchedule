@@ -17,12 +17,12 @@
 @interface StudentService : NSObject 
 
 -(id)initWithStudents:(NSArray *) students;
-
 -(BOOL)addStudent:(Student *)student;
 
 -(Student *) removeStudent:(Student *)student withId:(NSString *) _id;
 
--(void) save:(Student*) student;
+-(void) saveStudent:(Student*) student;
+
 -(void) read;
 -(NSSet*) allStudents;
 

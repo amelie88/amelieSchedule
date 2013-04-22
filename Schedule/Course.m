@@ -11,6 +11,16 @@
 
 @implementation Course
 
++(id) courseFromJson:(NSDictionary *)courseAsJson
+{
+    Course *course = [[self alloc] init];
+    course->__id = courseAsJson[@"_id"];
+    course.courseName = courseAsJson[@"courseName"];
+    course.weekday = courseAsJson[@"time"];
+    course.time = courseAsJson[@"time"];
+    return course;
+}
+
 -(id)init
 {
     return[self initWithCourseName:@"" weekday:@"" time:@"" teacher:@"" classroom:@"" chapter:@"" message:@""];
@@ -35,10 +45,14 @@
         self.classroom = classroom;
         self.chapter = chapter;
         self.message = message;
+        self->__id = [[NSUUID UUID] UUIDString];
     }
     return self;
 }
 
-
+-(NSUInteger)hash
+{
+    return 37 * [self._id hash];
+}
 
 @end

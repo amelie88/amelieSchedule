@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Student.h"
 
 @interface Course : NSObject
+
 @property(nonatomic, copy) NSString *courseName;
 @property(nonatomic, copy) NSString *weekday;
 @property(nonatomic, copy) NSString *time;
@@ -16,6 +18,7 @@
 @property(nonatomic, copy) NSString *classroom;
 @property(nonatomic, copy) NSString *chapter;
 @property(nonatomic, copy) NSString *message;
+@property (nonatomic, copy, readonly) NSString *_id;
 
 -(id)initWithCourseName:(NSString *) courseName
                 weekday:(NSString *) weekday
@@ -25,5 +28,6 @@
                 chapter:(NSString *) chapter
                 message:(NSString *) message;
 
++(id)courseFromJson:(NSDictionary*) courseAsJson;
 
 @end

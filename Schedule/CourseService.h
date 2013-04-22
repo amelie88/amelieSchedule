@@ -10,11 +10,18 @@
 #import "Course.h"
 #import "Student.h"
 
+
 @interface CourseService : NSObject
 
 -(id)initWithCourses:(NSArray *) courses;
 -(void)addCourse:(Course *)course;
--(void)weekSchedule:(Student*) student;
--(void)scheduleForDay:(NSString*)weekday : (Student*) student;
+-(void)saveCourse:(Course *)course;
+//-(void)weekSchedule:(Student*) student;
+//-(void)scheduleForDay:(NSString*)weekday : (Student*) student;
+-(NSSet*)allCourses;
+
+typedef void (^AllCoursesResponse)(NSArray *allReadCourses);
+
+-(void)getFromDatabase:(NSString*)courseId onCompletion:(AllCoursesResponse) allCoursesResponse;
 
 @end

@@ -78,11 +78,11 @@ static NSString * const historyKey = @"history_Key";
 }
 
 
--(void)save:(Student*) student
+-(void)saveStudent:(Student*) student
 {
     
-    NSDictionary *scheduleAsJson = [self serializeObjectToJson:student];
-    NSData *scheduleAsData = [NSJSONSerialization dataWithJSONObject:scheduleAsJson options:NSJSONWritingPrettyPrinted error:NULL];
+    NSDictionary *studentAsJson = [self serializeStudentToJson:student];
+    NSData *studentAsData = [NSJSONSerialization dataWithJSONObject:studentAsJson options:NSJSONWritingPrettyPrinted error:NULL];
     
     //initialize url that is going to be fetched.
     NSURL *url = [NSURL URLWithString:@"http://amelie.iriscouch.com/student_db"];
@@ -97,7 +97,7 @@ static NSString * const historyKey = @"history_Key";
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     //set post data of request
-    [request setHTTPBody:scheduleAsData];
+    [request setHTTPBody:studentAsData];
     
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:nil];
     [connection start];
@@ -106,6 +106,8 @@ static NSString * const historyKey = @"history_Key";
     [loop run];
                     
 }
+
+
 
 //-(NSArray*)serializeCollectionToJson:(id) objects
 //{
@@ -117,7 +119,7 @@ static NSString * const historyKey = @"history_Key";
 //    return result;
 //}
 
--(id)serializeObjectToJson:(id) object
+-(id)serializeStudentToJson:(id) object
 {
     NSObject *result = [[NSObject alloc] init];
     result = [object jsonValue];
