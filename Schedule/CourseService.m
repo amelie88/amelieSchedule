@@ -112,7 +112,7 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
 
 -(void)getFromDatabase:(NSString *)courseId onCompletion:(AllCoursesResponse)allCoursesResponse
 {
-    
+     
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/course_db/%@", courseId]];
     
