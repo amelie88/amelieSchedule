@@ -11,9 +11,11 @@
 #import "Student+Json.h" 
 
 
+
 static NSString * const englishKey = @"english_key";
-static NSString * const mathKey = @"math_key";
-static NSString * const historyKey = @"history_Key"; 
+static NSString * const historyKey = @"history_key";
+static NSString * const allSubjectsKey = @"allsubjects_key";
+
 
 @implementation StudentService
 {
@@ -32,8 +34,9 @@ static NSString * const historyKey = @"history_Key";
     
     if (self) {
         students = @{englishKey: [[NSMutableSet alloc] init],
-                     mathKey: [[NSMutableSet alloc] init],
-                     historyKey: [[NSMutableSet alloc] init]
+                     historyKey: [[NSMutableSet alloc] init],
+                     allSubjectsKey: [[NSMutableSet alloc] init]
+                     
                      };
         queue = [[NSOperationQueue alloc] init];
     
@@ -47,34 +50,37 @@ static NSString * const historyKey = @"history_Key";
    
 -(BOOL)addStudent:(Student *)student
 {
-    if([student.course isEqualToString:@"english"]){ 
-        [students[englishKey] addObject:student];
-    } else if ([student.course isEqualToString:@"math"]){
-        [students[mathKey] addObject:student];
-    } else {
+    if([student.allCourses isEqualToString:@"yes"])
+    {
+        [students[allSubjectsKey] addObject:student];
+    }
+    else if ([student.history isEqualToString:@"yes"])
+    {
         [students[historyKey] addObject:student];
+    }
+    else if ([student.english isEqualToString:@"yes"])
+    {
+        [students[englishKey] addObject:student];
     }
     return YES;
 }
 
--(Student *) removeStudent:(Student *)student withId:(NSString *)studentId
+
+-(BOOL)removeStudent:(Student *)student
 {
-    if(students[studentId])
+    if([student.allCourses isEqualToString:@"yes"])
     {
-        Student *removedStudent = students[studentId];
-        
-        if([student.course isEqualToString:@"english"]){
-            [students[englishKey] removeObject:student];
-            return removedStudent;
-        } else if ([student.course isEqualToString:@"math"]){
-            [students[mathKey] removeObject:student];
-            return removedStudent;
-        } else {
-            [students[historyKey] removeObject:student];
-            return removedStudent;
-        }
+        [students[allSubjectsKey] removeObject:student];
     }
-    return nil;
+    else if ([student.history isEqualToString:@"yes"])
+    {
+        [students[historyKey] removeObject:student];
+    }
+    else if ([student.english isEqualToString:@"yes"])
+    {
+        [students[englishKey] removeObject:student];
+    }
+    return YES;
 }
 
 
@@ -109,16 +115,6 @@ static NSString * const historyKey = @"history_Key";
 
 
 
-//-(NSArray*)serializeCollectionToJson:(id) objects
-//{
-//    NSMutableArray *result = [[NSMutableArray alloc] init];
-//    
-//    for(id<JsonFormat> object in objects) {
-//        [result addObject:[object jsonValue]];
-//    }
-//    return result;
-//}
-
 -(id)serializeStudentToJson:(id) object
 {
     NSObject *result = [[NSObject alloc] init];
@@ -127,19 +123,6 @@ static NSString * const historyKey = @"history_Key";
 }
 
 
--(void)read
-{
-    //    NSData *scheduleAsData = [NSData dataWithContentsOfFile:urlString];
-    //
-    //    if(scheduleAsData){
-    //        NSDictionary *scheduleAsJson = [NSJSONSerialization JSONObjectWithData:scheduleAsData options:0 error:NULL];
-    //
-    //        for(NSDictionary *student in scheduleAsJson[@"students"]){
-    //            [self addStudent:[Student studentFromJson:student]];
-    ////        }
-    //    }
-    //    NSData *scheduleAsData = NSData
-}
 
 
 -(void)getFromDatabase:(NSString *)studentId onCompletion:(AllStudentsResponse)allStudentsResponse

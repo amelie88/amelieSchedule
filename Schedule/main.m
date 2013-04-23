@@ -19,14 +19,14 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
         
-          CourseService *courseservice = [[CourseService alloc] init];
+        CourseService *courseservice = [[CourseService alloc] init];
         StudentService *studentservice = [[StudentService alloc] init];
 
         
-       Student *Amelie = [[Student alloc] initWithLastName:@"Gereholt" firstName:@"Amelie" course:@"history"];
-       Student *Kristoffer = [[Student alloc] initWithLastName:@"Bergkvist" firstName:@"Kristoffer" course:@"history"];
-       Student *Jens = [[Student alloc] initWithLastName:@"Hagfeldt" firstName:@"Jens" course:@"math"];
-       Student *Emma = [[Student alloc] initWithLastName:@"Emma" firstName:@"Johansson" course:@"english"];
+        Student *Amelie = [[Student alloc] initWithName:@"Amelie" allCourses:@"yes" history:@"yes" english:@"yes"];
+        Student *Kristoffer = [[Student alloc] initWithName:@"Kristoffer" allCourses:@"yes" history:@"yes" english:@"no"];
+        Student *Jens = [[Student alloc] initWithName:@"Jens" allCourses:@"yes" history:@"no" english:@"yes"];
+        Student *Emma = [[Student alloc] initWithName:@"Emma" allCourses:@"no" history:@"no" english:@"yes"];
         
         
         
@@ -41,7 +41,7 @@ int main(int argc, const char * argv[])
         Course *historyTuesday = [[Course alloc] initWithCourseName:@"history" weekday:@"tuesday" time:@"12-14" teacher:@"Erik Jonsson" classroom:@"1B" chapter:@"7-8" message:@"Kom i tid!"];
         Course *historyWednesday = [[Course alloc] initWithCourseName:@"history" weekday:@"wednesday" time:@"13-14" teacher:@"Bert Karlsson" classroom:@"7C" chapter:@"4-6" message:@"Gör uppgifter!"];
         Course *historyThursday = [[Course alloc] initWithCourseName:@"history" weekday:@"thursday" time:@"14-15" teacher:@"Burt Karlsson" classroom:@"8C" chapter:@"4-6" message:@"Vikarie"];
-        Course *historyFriday = [[Course alloc] initWithCourseName:@"history" weekday:@"friday" time:@"14-15" teacher:@"Sara Karlsson" classroom:@"8C" chapter:@"4-6" message:@"Vikarie"];
+        Course *mathMonday = [[Course alloc] initWithCourseName:@"math" weekday:@"monday" time:@"14-15" teacher:@"Sara Karlsson" classroom:@"8C" chapter:@"4-6" message:@"Vikarie"];
        
 
         Course *englishMonday = [[Course alloc] initWithCourseName:@"english" weekday:@"monday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Halloj"];
@@ -50,39 +50,40 @@ int main(int argc, const char * argv[])
         [courseservice addCourse:historyTuesday];
         [courseservice addCourse:historyWednesday];
         [courseservice addCourse:historyThursday];
-        [courseservice addCourse:historyFriday];
-        
+        [courseservice addCourse:mathMonday];
         [courseservice addCourse:englishMonday];
         
+       
+       
         
-        [courseservice weekSchedule:Amelie];
-        [courseservice scheduleForDay:@"friday":Amelie];
+        [courseservice weekSchedule:Jens];
+//        [courseservice scheduleForDay:@"friday":Amelie];
         
 
         
-        [studentservice saveStudent:Amelie];
-        [courseservice saveCourse:historyMonday];
+//        [studentservice saveStudent:Amelie];
+//        [courseservice saveCourse:historyMonday];
 
         
-        [studentservice getFromDatabase:@"E0866A94-3C41-4D73-B836-74307F9A0BCF" onCompletion:^(NSArray *allReadStudents) {
-            
-            for(id _id in allReadStudents){
-                NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);
-            }
-        }];
-    }
-    
-    [[NSRunLoop currentRunLoop] run];
-    
-    [courseservice getFromDatabase:@"501C4909-1247-44C8-8728-D0F665774EEF" onCompletion:^(NSArray *allReadCourses) {
-        
-        for(id _id in allReadCourses){
-            NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);
-        }
-    }];
-}
-
-[[NSRunLoop currentRunLoop] run];
+//        [studentservice getFromDatabase:@"E0866A94-3C41-4D73-B836-74307F9A0BCF" onCompletion:^(NSArray *allReadStudents) {
+//            
+//            for(id _id in allReadStudents){
+//                NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);
+//            }
+//        }];
+//    }
+//    [[NSRunLoop currentRunLoop] run];
+//    
+//    
+//    
+//        [courseservice getFromDatabase:@"501C4909-1247-44C8-8728-D0F665774EEF" onCompletion:^(NSArray *allReadCourses) {
+//        
+//          for(id _id in allReadCourses){
+//              NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);
+//          }
+//      }];
+//  }
+//  [[NSRunLoop currentRunLoop] run];
 
 
     }

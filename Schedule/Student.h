@@ -11,14 +11,16 @@
 
 @interface Student : NSObject
 
-@property (nonatomic, copy) NSString *lastName;
-@property (nonatomic, copy) NSString *firstName;
-@property (nonatomic, copy) NSString *course;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *allCourses;
+@property (nonatomic, copy) NSString *history;
+@property (nonatomic, copy) NSString *english;
 @property (nonatomic, copy, readonly) NSString *_id;
 
--(id)initWithLastName:(NSString *) lastName
-            firstName:(NSString *) firstName
-               course:(NSString *) course;
+-(id)initWithName:(NSString *) name
+                 allCourses:(NSString *) allCourses
+            history:(NSString *) history
+              english:(NSString *) english;
 
 
 +(id)studentFromJson:(NSDictionary*) studentAsJson;

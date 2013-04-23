@@ -15,27 +15,30 @@
 {
     Student *student = [[self alloc] init];
     student->__id = studentAsJson[@"_id"];
-    student.lastName = studentAsJson[@"lastName"];
-    student.firstName = studentAsJson[@"firstName"];
-    student.course = studentAsJson[@"course"];
+    student.name = studentAsJson[@"name"];
+    student.allCourses = studentAsJson[@"allCourses"];
+    student.history = studentAsJson[@"history"];
+    student.english = studentAsJson[@"english"];
     return student;
 }
 
 -(id)init 
 {
-    return [self initWithLastName:@"" firstName:@"" course:@""];
+    return [self initWithName:@"" allCourses:@"" history:@"" english:@""];
 }
 
--(id)initWithLastName:(NSString *) lastName
-            firstName:(NSString *) firstName
-               course:(NSString *) course
+-(id)initWithName:(NSString *) name
+            allCourses:(NSString *) allCourses
+               history:(NSString *) history
+          english:(NSString*) english;
 {
     self = [super init];
     
     if (self) {
-        self.lastName = lastName;
-        self.firstName = firstName;
-        self.course = course;
+        self.name = name;
+        self.allCourses = allCourses;
+        self.history = history;
+        self.english = english;
         self->__id = [[NSUUID UUID] UUIDString];
     }
     return self;

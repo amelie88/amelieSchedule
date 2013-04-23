@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Course.h"
 #import "Student.h"
+#import "StudentService.h"
 
 
 @interface CourseService : NSObject
@@ -16,9 +17,11 @@
 -(id)initWithCourses:(NSArray *) courses;
 -(void)addCourse:(Course *)course;
 -(void)saveCourse:(Course *)course;
-//-(void)weekSchedule:(Student*) student;
-//-(void)scheduleForDay:(NSString*)weekday : (Student*) student;
+-(void)updateCourse:(Course *)course;
+-(void)weekSchedule:(Student*) student;
+-(void)scheduleForDay:(NSString*)weekday : (Student*) student;
 -(NSSet*)allCourses;
+
 
 typedef void (^AllCoursesResponse)(NSArray *allReadCourses);
 

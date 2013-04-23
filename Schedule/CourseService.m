@@ -10,12 +10,15 @@
 #import "Course.h"
 #import "Student.h"
 #import "Course+Json.h"
+#import "StudentService.h"
 
 static NSString *const mondayKey = @"monday_key";
 static NSString *const tuesdayKey = @"tuesday_key";
 static NSString *const wednesdayKey = @"wednesday_key";
 static NSString *const thursdayKey = @"thursday_key";
 static NSString *const fridayKey = @"friday_key";
+static NSString *const allWeekdaysKey = @"allweekdays_key";
+
 
 @implementation CourseService
 {
@@ -37,7 +40,8 @@ static NSString *const fridayKey = @"friday_key";
                     tuesdayKey: [[NSMutableSet alloc] init],
                     wednesdayKey: [[NSMutableSet alloc] init],
                     thursdayKey: [[NSMutableSet alloc] init],
-                    fridayKey: [[NSMutableSet alloc] init]
+                    fridayKey: [[NSMutableSet alloc] init],
+                    allWeekdaysKey: [[NSMutableSet alloc] init]
                     };
         queue = [[NSOperationQueue alloc] init];
         
@@ -52,14 +56,19 @@ static NSString *const fridayKey = @"friday_key";
 { 
     if([course.weekday isEqualToString:@"monday"]){
         [courses[mondayKey] addObject:course];
+        [courses[allWeekdaysKey] addObject:course];
     } else if ([course.weekday isEqualToString:@"tuesday"]){
         [courses[tuesdayKey] addObject:course];
+        [courses[allWeekdaysKey] addObject:course];
     } else if ([course.weekday isEqualToString:@"wednesday"]){
         [courses[wednesdayKey] addObject:course];
+        [courses[allWeekdaysKey] addObject:course];
     } else if ([course.weekday isEqualToString:@"thursday"]){
         [courses[thursdayKey] addObject:course];
+        [courses[allWeekdaysKey] addObject:course];
     } else if ([course.weekday isEqualToString:@"friday"]){
         [courses[fridayKey] addObject:course];
+        [courses[allWeekdaysKey] addObject:course];
 }
 }
 
@@ -119,23 +128,45 @@ static NSString *const fridayKey = @"friday_key";
         allCoursesResponse(readCourses);
     }];
 }
+       //&& ([course.courseName isEqualToString:@"math"] || [course.courseName isEqualToString:@"history"] || [course.courseName isEqualToString:@"english"]))
+
+-(void)weekSchedule:(Student *)student;
+{  for (Course *course in courses[allWeekdaysKey])
+{ if([student.allCourses isEqualToString:@"yes"])
+{
+    NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+}
+    else if ([student.history isEqualToString:@"yes"])
+{
+    if ([course.courseName isEqualToString:@"history"])
+    {
+           NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+    }
+}
+
+    else if([student.english isEqualToString:@"yes"])
+{
+if ([course.courseName isEqualToString:@"english"])
+    {
+           NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+    }
+   }
+ }
+}
 
 
-//-(void)weekSchedule:(Student *)student;
-//{   for (Course *course in allCourses) {
-//    if([student.course isEqualToString:course.courseName]) {
-//                NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-//            }
-//        }
-//}
-//
-//-(void)scheduleForDay:(NSString*)weekday : (Student*) student;
-//{   for (Course *course in courses) {
-//    if([course.weekday isEqualToString:weekday]) {
-//        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-//        }
-//    }
-//}
+
+
+
+
+
+-(void)scheduleForDay:(NSString*)weekday : (Student*) student;
+{   for (Course *course in courses[allWeekdaysKey]) {
+    if([course.weekday isEqualToString:weekday]) {
+        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        }
+    }
+}
 
 -(NSSet*) allCourses
 {
