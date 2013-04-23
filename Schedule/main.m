@@ -25,7 +25,7 @@ int main(int argc, const char * argv[])
         
         Student *Amelie = [[Student alloc] initWithName:@"Amelie" allCourses:@"yes" history:@"yes" english:@"yes"];
         Student *Kristoffer = [[Student alloc] initWithName:@"Kristoffer" allCourses:@"yes" history:@"yes" english:@"no"];
-        Student *Jens = [[Student alloc] initWithName:@"Jens" allCourses:@"yes" history:@"no" english:@"yes"];
+        Student *Jens = [[Student alloc] initWithName:@"Jens" allCourses:@"no" history:@"yes" english:@"no"];
         Student *Emma = [[Student alloc] initWithName:@"Emma" allCourses:@"no" history:@"no" english:@"yes"];
         
         
@@ -56,8 +56,8 @@ int main(int argc, const char * argv[])
        
        
         
-        [courseservice weekSchedule:Jens];
-//        [courseservice scheduleForDay:@"friday":Amelie];
+//        [courseservice weekSchedule:Jens];
+        [courseservice scheduleForDay:@"monday":Emma];
         
 
         

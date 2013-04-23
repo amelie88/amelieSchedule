@@ -161,11 +161,32 @@ if ([course.courseName isEqualToString:@"english"])
 
 
 -(void)scheduleForDay:(NSString*)weekday : (Student*) student;
-{   for (Course *course in courses[allWeekdaysKey]) {
-    if([course.weekday isEqualToString:weekday]) {
+{for (Course *course in courses[allWeekdaysKey])
+{
+    if([student.allCourses isEqualToString:@"yes"])
+    {
+    if([course.weekday isEqualToString:weekday])
+    {
         NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-        }
     }
+} else if ([student.history isEqualToString:@"yes"])
+{
+    if([course.courseName isEqualToString:@"history"])
+    { if([course.weekday isEqualToString:weekday])
+    {
+        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+    }
+}
+} else if ([student.english isEqualToString:@"yes"])
+{
+    if([course.courseName isEqualToString:@"english"])
+    { if ([course.weekday isEqualToString:weekday])
+    {
+        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+}
+}
+}
+}
 }
 
 -(NSSet*) allCourses
