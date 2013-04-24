@@ -21,6 +21,8 @@
 -(void)deleteCourse:(Course *)course : (NSString*)courseId : (NSString*)revNumber;
 -(void)weekSchedule:(Student*) student;
 -(void)scheduleForDay:(NSString*)weekday : (Student*) student;
+-(void)chapterForDay:(NSString*)weekday : (Student*) student;
+-(void)chaptersForWeek:(Student*)student;
 -(NSSet*)allCourses;
 
 -(void)checkId:(Course*)course;

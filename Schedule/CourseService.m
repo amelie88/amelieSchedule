@@ -243,6 +243,59 @@ if ([course.courseName isEqualToString:@"english"])
  }
 }
 
+
+-(void)chapterForDay:(NSString *)weekday :(Student *)student
+{for (Course *course in courses[allWeekdaysKey])
+{
+    if([student.allCourses isEqualToString:@"yes"])
+    {if([course.weekday isEqualToString:weekday])
+    {
+        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+    }
+    } else if ([student.history isEqualToString:@"yes"])
+    {if([course.courseName isEqualToString:@"history"])
+    {if([course.weekday isEqualToString:weekday])
+    {
+        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+    }
+    }
+    } else if ([student.english isEqualToString:@"yes"])
+    {if([course.courseName isEqualToString:@"english"])
+    {if ([course.weekday isEqualToString:weekday])
+    {
+        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+    }
+    }
+    }
+}
+}
+
+-(void)chaptersForWeek:(Student *)student
+{  for (Course *course in courses[allWeekdaysKey])
+{ if([student.allCourses isEqualToString:@"yes"])
+{
+    NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+}
+else if ([student.history isEqualToString:@"yes"])
+{
+    if ([course.courseName isEqualToString:@"history"])
+    {
+        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+    }
+}
+    
+else if([student.english isEqualToString:@"yes"])
+{
+    if ([course.courseName isEqualToString:@"english"])
+    {
+        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+    }
+}
+}
+}
+
+
+
 -(NSSet*) allCourses
 {
     return [courses[mondayKey] setByAddingObjectsFromSet:courses[tuesdayKey]];
