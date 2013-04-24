@@ -101,6 +101,35 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     
 }
 
+-(void)updateCourse:(Course *)course : (NSString *)courseId : (NSString*) revNumber
+{
+    NSDictionary *courseAsJson = [self serializeCourseToJson:course];
+    NSData *courseAsData = [NSJSONSerialization dataWithJSONObject:courseAsJson options:NSJSONWritingPrettyPrinted error:NULL];
+    
+    //initialize url that is going to be fetched.
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/course_db/%@?rev=%@", courseId, revNumber]];
+    
+    //initialize a request from url
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
+    
+    //set http method
+    [request setHTTPMethod:@"PUT"];
+    
+    //set post data of request
+    [request setHTTPBody:courseAsData];
+    
+    //initialize a post data
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"hejsan" forHTTPHeaderField:@"message"];
+    
+    
+    NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:nil];
+    [connection start];
+    
+    NSRunLoop *loop = [NSRunLoop currentRunLoop];
+    [loop run];
+}
+
 
 -(id)serializeCourseToJson:(id) object
 {
@@ -110,7 +139,8 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
 }
 
 
--(void)getFromDatabase:(NSString *)courseId onCompletion:(AllCoursesResponse)allCoursesResponse
+-(void)getFromDatabase:(NSString *)courseId
+          onCompletion:(AllCoursesResponse)allCoursesResponse
 {
      
     
@@ -125,10 +155,15 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
         NSArray *readCourses = @[data];
         
         // Execute the block which was sent as an argument. This will "call back" to caller
-        allCoursesResponse(readCourses);
+       allCoursesResponse(readCourses);
+        
+        
     }];
+    
+    
+    
 }
-       //&& ([course.courseName isEqualToString:@"math"] || [course.courseName isEqualToString:@"history"] || [course.courseName isEqualToString:@"english"]))
+       
 
 -(void)weekSchedule:(Student *)student;
 {  for (Course *course in courses[allWeekdaysKey])
@@ -164,29 +199,26 @@ if ([course.courseName isEqualToString:@"english"])
 {for (Course *course in courses[allWeekdaysKey])
 {
     if([student.allCourses isEqualToString:@"yes"])
-    {
-    if([course.weekday isEqualToString:weekday])
-    {
-        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        {if([course.weekday isEqualToString:weekday])
+            {
+                NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+            }
+    } else if ([student.history isEqualToString:@"yes"])
+    {if([course.courseName isEqualToString:@"history"])
+        {if([course.weekday isEqualToString:weekday])
+        {
+            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        }
     }
-} else if ([student.history isEqualToString:@"yes"])
-{
-    if([course.courseName isEqualToString:@"history"])
-    { if([course.weekday isEqualToString:weekday])
-    {
+    } else if ([student.english isEqualToString:@"yes"])
+    {if([course.courseName isEqualToString:@"english"])
+        {if ([course.weekday isEqualToString:weekday])
+        {
         NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        }
     }
-}
-} else if ([student.english isEqualToString:@"yes"])
-{
-    if([course.courseName isEqualToString:@"english"])
-    { if ([course.weekday isEqualToString:weekday])
-    {
-        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-}
-}
-}
-}
+  }
+ }
 }
 
 -(NSSet*) allCourses
@@ -194,6 +226,10 @@ if ([course.courseName isEqualToString:@"english"])
     return [courses[mondayKey] setByAddingObjectsFromSet:courses[tuesdayKey]];
 }
 
+-(void)checkId:(Course *)course
+{
+    NSLog(@"%@", course._id);
+}
 
 
 @end

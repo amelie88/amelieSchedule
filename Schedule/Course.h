@@ -18,7 +18,7 @@
 @property(nonatomic, copy) NSString *classroom;
 @property(nonatomic, copy) NSString *chapter;
 @property(nonatomic, copy) NSString *message;
-@property (nonatomic, copy, readonly) NSString *_id;
+@property (nonatomic, copy) NSString *_id;
 
 -(id)initWithCourseName:(NSString *) courseName
                 weekday:(NSString *) weekday
@@ -26,7 +26,8 @@
                 teacher:(NSString *) teacher
               classroom:(NSString *) classroom
                 chapter:(NSString *) chapter
-                message:(NSString *) message;
+                message:(NSString *) message
+                    _id:(NSString *)_id;
 
 +(id)courseFromJson:(NSDictionary*) courseAsJson;
 

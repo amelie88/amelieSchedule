@@ -17,10 +17,12 @@
 -(id)initWithCourses:(NSArray *) courses;
 -(void)addCourse:(Course *)course;
 -(void)saveCourse:(Course *)course;
--(void)updateCourse:(Course *)course;
+-(void)updateCourse:(Course *)course : (NSString*)courseId : (NSString*)revNumber;
 -(void)weekSchedule:(Student*) student;
 -(void)scheduleForDay:(NSString*)weekday : (Student*) student;
 -(NSSet*)allCourses;
+
+-(void)checkId:(Course*)course;
 
 
 typedef void (^AllCoursesResponse)(NSArray *allReadCourses);
