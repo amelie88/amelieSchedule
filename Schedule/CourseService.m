@@ -130,6 +130,28 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     [loop run];
 }
 
+-(void)deleteCourse:(Course *)course :(NSString *)courseId :(NSString *)revNumber
+{
+    NSDictionary *courseAsJson = [self serializeCourseToJson:course];
+    NSData *courseAsData = [NSJSONSerialization dataWithJSONObject:courseAsJson options:NSJSONWritingPrettyPrinted error:NULL];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/course_db/%@?rev=%@", courseId, revNumber]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
+    
+    [request setHTTPMethod:@"DELETE"];
+    
+    [request setHTTPBody:courseAsData];
+    
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:nil];
+    [connection start];
+    
+    NSRunLoop *loop = [NSRunLoop currentRunLoop];
+    [loop run];
+    
+}
 
 -(id)serializeCourseToJson:(id) object
 {

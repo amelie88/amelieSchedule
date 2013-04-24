@@ -20,7 +20,7 @@ int main(int argc, const char * argv[])
     @autoreleasepool {
         
         CourseService *courseservice = [[CourseService alloc] init];
-        StudentService *studentservice = [[StudentService alloc] init];
+//        StudentService *studentservice = [[StudentService alloc] init];
 //
 //        
 //        Student *Amelie = [[Student alloc] initWithName:@"Amelie" allCourses:@"yes" history:@"yes" english:@"yes"];
@@ -37,7 +37,7 @@ int main(int argc, const char * argv[])
 //        
 //    
 //        
-        Course *historyMonday = [[Course alloc] initWithCourseName:@"history" weekday:@"monday" time:@"10-12" teacher:@"Bert Karlsson" classroom:@"1A" chapter:@"3-5" message:@"Findag" _id:[[NSUUID UUID] UUIDString]];
+        Course *historyMonday = [[Course alloc] initWithCourseName:@"history" weekday:@"monday" time:@"10-12" teacher:@"Bert Karlsson" classroom:@"1A" chapter:@"3-5" message:@"Ojoj" _id:[[NSUUID UUID] UUIDString]];
 //        Course *historyTuesday = [[Course alloc] initWithCourseName:@"history" weekday:@"tuesday" time:@"12-14" teacher:@"Erik Jonsson" classroom:@"1B" chapter:@"7-8" message:@"Kom i tid!" _id:[[NSUUID UUID] UUIDString]];
 //        Course *historyWednesday = [[Course alloc] initWithCourseName:@"history" weekday:@"wednesday" time:@"13-14" teacher:@"Bert Karlsson" classroom:@"7C" chapter:@"4-6" message:@"Gör uppgifter!" _id:[[NSUUID UUID] UUIDString]];
 //        Course *historyThursday = [[Course alloc] initWithCourseName:@"history" weekday:@"thursday" time:@"14-15" teacher:@"Burt Karlsson" classroom:@"8C" chapter:@"4-6" message:@"Vikarie" _id:[[NSUUID UUID] UUIDString]];
@@ -66,17 +66,14 @@ int main(int argc, const char * argv[])
         
  //       [courseservice updateCourse:historyMonday : @"1218190B-F843-4FDF-96A9-2A7309ECDE67"];
         
-        [courseservice updateCourse:historyMonday :@"D8793FFE-328B-43EB-912C-00998835A597" : @"2-f7c666bcc3986c538271c2e5548de629"];
+        [courseservice deleteCourse:historyMonday :@"D8793FFE-328B-43EB-912C-00998835A597" :@"3-06e53e4f2fce646c36a0403a3ff668bd"];
 
         
 //        [studentservice getFromDatabase:@"E0866A94-3C41-4D73-B836-74307F9A0BCF" onCompletion:^(NSArray *allReadStudents) {
-//            
 //            for(id _id in allReadStudents){
 //                NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);
-//            }
-//        }];
-//    }
-//    [[NSRunLoop currentRunLoop] run];
+//            }}];
+//    }[[NSRunLoop currentRunLoop] run];
 //
 //    
 //    
@@ -85,7 +82,7 @@ int main(int argc, const char * argv[])
 //              NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);
 //          }}];
 //  } [[NSRunLoop currentRunLoop] run];
-//
+
 
    }
     return 0;
