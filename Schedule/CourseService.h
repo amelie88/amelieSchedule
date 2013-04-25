@@ -10,19 +10,21 @@
 #import "Course.h"
 #import "Student.h"
 #import "StudentService.h"
+#import "Admin.h"
 
 
 @interface CourseService : NSObject
 
 -(id)initWithCourses:(NSArray *) courses;
--(void)addCourse:(Course *)course;
--(void)saveCourse:(Course *)course;
--(void)updateCourse:(Course *)course : (NSString*)courseId : (NSString*)revNumber;
--(void)deleteCourse:(Course *)course : (NSString*)courseId : (NSString*)revNumber;
--(void)weekSchedule:(Student*) student;
--(void)scheduleForDay:(NSString*)weekday : (Student*) student;
--(void)chapterForDay:(NSString*)weekday : (Student*) student;
--(void)chaptersForWeek:(Student*)student;
+-(BOOL)addCourse:(Course *)course : (Admin*) admin;
+-(BOOL)saveCourse:(Course *)course;
+-(BOOL)updateCourse:(Course *)course : (NSString*)courseId : (NSString*)revNumber;
+-(BOOL)deleteCourse:(Course *)course : (NSString*)courseId : (NSString*)revNumber;
+-(BOOL)weekSchedule:(Student*) student;
+-(BOOL)scheduleForDay:(NSString*)weekday : (Student*) student;
+-(BOOL)chapterForDay:(NSString*)weekday : (Student*) student;
+-(BOOL)chaptersForWeek:(Student*)student;
+-(void)loopThroughCourses;
 -(NSSet*)allCourses;
 
 -(void)checkId:(Course*)course;

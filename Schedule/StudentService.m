@@ -62,6 +62,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     {
         [students[englishKey] addObject:student];
     }
+    [self saveStudent:student];
     return YES;
 }
 
@@ -84,7 +85,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
 }
 
 
--(void)saveStudent:(Student*) student
+-(BOOL)saveStudent:(Student*) student
 {
     
     NSDictionary *studentAsJson = [self serializeStudentToJson:student];
@@ -110,7 +111,8 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     
     NSRunLoop *loop = [NSRunLoop currentRunLoop];
     [loop run];
-                    
+    
+    return YES;
 }
 
 

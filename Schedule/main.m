@@ -44,19 +44,24 @@ int main(int argc, const char * argv[])
         Course *mathMonday = [[Course alloc] initWithCourseName:@"math" weekday:@"monday" time:@"14-15" teacher:@"Sara Karlsson" classroom:@"8C" chapter:@"4-6" message:@"Vikarie" _id:[[NSUUID UUID] UUIDString]];
         Course *englishMonday = [[Course alloc] initWithCourseName:@"english" weekday:@"monday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Halloj" _id:[[NSUUID UUID] UUIDString]];
         Course *englishTuesday = [[Course alloc] initWithCourseName:@"english" weekday:@"tuesday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Work hard" _id:[[NSUUID UUID] UUIDString]];
+        Course *englishWednesday = [[Course alloc] initWithCourseName:@"english" weekday:@"wednesday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Sjuk" _id:[[NSUUID UUID] UUIDString]];
         
+        Admin *admin = [[Admin alloc] initWithUsername:@"admin1" password:@"mySecretPassword"];
         
 //        
-       [courseservice addCourse:historyMonday];
-       [courseservice addCourse:historyTuesday];
-        [courseservice addCourse:historyWednesday];
-        [courseservice addCourse:historyThursday];
-       [courseservice addCourse:mathMonday];
-        [courseservice addCourse:englishMonday];
-        [courseservice addCourse:englishTuesday];
+        [courseservice addCourse:historyMonday:admin];
+        [courseservice addCourse:historyTuesday:admin];
+        [courseservice addCourse:historyWednesday:admin];
+        [courseservice addCourse:historyThursday:admin];
+        [courseservice addCourse:mathMonday:admin];
+        [courseservice addCourse:englishMonday:admin];
+        [courseservice addCourse:englishTuesday:admin];
+        [courseservice addCourse:englishWednesday:admin];
 
+        
+        
 //        [courseservice chapterForDay:@"tuesday" :Emma];
-        [courseservice chaptersForWeek:Emma];
+//        [courseservice chaptersForWeek:Emma];
         
 //        [courseservice checkId:historyMonday];
        
@@ -66,7 +71,7 @@ int main(int argc, const char * argv[])
         
         
 //        [studentservice saveStudent:Emma];
-//        [courseservice saveCourse:historyMonday];
+//        [courseservice saveCourse:englishWednesday];
 //        [courseservice updateCourse:historyMonday : @"1218190B-F843-4FDF-96A9-2A7309ECDE67"];
         
 //        [courseservice deleteCourse:historyMonday :@"D8793FFE-328B-43EB-912C-00998835A597" :@"3-06e53e4f2fce646c36a0403a3ff668bd"];

@@ -19,9 +19,9 @@
 -(id)initWithStudents:(NSArray *) students;
 -(BOOL)addStudent:(Student *)student;
 
--(Student *) removeStudent:(Student *)student withId:(NSString *) _id;
+-(BOOL) removeStudent:(Student *)student;
 
--(void) saveStudent:(Student*) student;
+-(BOOL) saveStudent:(Student*) student;
 
 -(void) read;
 -(NSSet*) allStudents;

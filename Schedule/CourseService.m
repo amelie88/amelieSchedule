@@ -46,14 +46,14 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
         queue = [[NSOperationQueue alloc] init];
         
         for(Course* course in coursesToAdd) {
-            [self addCourse:course];
+            [self addCourse:course : nil];
         }
     }
     return self;
 }
 
--(void)addCourse:(Course *)course
-{ 
+-(BOOL)addCourse:(Course *)course : (Admin*) admin
+{ if([admin.password isEqualToString:@"mySecretPassword"]){
     if([course.weekday isEqualToString:@"monday"]){
         [courses[mondayKey] addObject:course];
         [courses[allWeekdaysKey] addObject:course];
@@ -69,10 +69,13 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     } else if ([course.weekday isEqualToString:@"friday"]){
         [courses[fridayKey] addObject:course];
         [courses[allWeekdaysKey] addObject:course];
+        
+        [self saveCourse:course];
 }
+} return YES;
 }
 
--(void)saveCourse:(Course *)course
+-(BOOL)saveCourse:(Course *)course
 {
     
     NSDictionary *courseAsJson = [self serializeCourseToJson:course];
@@ -99,9 +102,10 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     NSRunLoop *loop = [NSRunLoop currentRunLoop];
     [loop run];
     
+    return YES;
 }
 
--(void)updateCourse:(Course *)course : (NSString *)courseId : (NSString*) revNumber
+-(BOOL)updateCourse:(Course *)course : (NSString *)courseId : (NSString*) revNumber
 {
     NSDictionary *courseAsJson = [self serializeCourseToJson:course];
     NSData *courseAsData = [NSJSONSerialization dataWithJSONObject:courseAsJson options:NSJSONWritingPrettyPrinted error:NULL];
@@ -128,9 +132,11 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     
     NSRunLoop *loop = [NSRunLoop currentRunLoop];
     [loop run];
+    
+    return YES;
 }
 
--(void)deleteCourse:(Course *)course :(NSString *)courseId :(NSString *)revNumber
+-(BOOL)deleteCourse:(Course *)course :(NSString *)courseId :(NSString *)revNumber
 {
     NSDictionary *courseAsJson = [self serializeCourseToJson:course];
     NSData *courseAsData = [NSJSONSerialization dataWithJSONObject:courseAsJson options:NSJSONWritingPrettyPrinted error:NULL];
@@ -151,6 +157,7 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     NSRunLoop *loop = [NSRunLoop currentRunLoop];
     [loop run];
     
+    return YES;
 }
 
 -(id)serializeCourseToJson:(id) object
@@ -161,7 +168,7 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
 }
 
 
--(void)getFromDatabase:(NSString *)courseId
+-(BOOL)getFromDatabase:(NSString *)courseId
           onCompletion:(AllCoursesResponse)allCoursesResponse
 {
      
@@ -182,7 +189,7 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
         
     }];
     
-    
+    return YES;
     
 }
        
@@ -294,6 +301,12 @@ else if([student.english isEqualToString:@"yes"])
 }
 }
 
+-(void)loopThroughCourses;
+{
+    for(Course *course in courses){
+        NSLog(@"%@", course);
+    }
+}
 
 
 -(NSSet*) allCourses
