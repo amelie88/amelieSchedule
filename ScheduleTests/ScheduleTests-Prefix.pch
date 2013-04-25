@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'ScheduleTests' target in the 'ScheduleTests' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

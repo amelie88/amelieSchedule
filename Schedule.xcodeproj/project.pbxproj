@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		370EDF30171801970011FCEB /* CourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2F171801970011FCEB /* CourseService.m */; };
+		372E813817297DB600E6A0E1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E813717297DB600E6A0E1 /* SenTestingKit.framework */; };
+		372E813A17297DB600E6A0E1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E813917297DB600E6A0E1 /* Cocoa.framework */; };
+		372E814417297DB600E6A0E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 372E814217297DB600E6A0E1 /* InfoPlist.strings */; };
+		372E814C1729807000E6A0E1 /* StudentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFDE171324A400F6250B /* StudentService.m */; };
+		372E814D1729808600E6A0E1 /* CourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2F171801970011FCEB /* CourseService.m */; };
+		372E81511729886B00E6A0E1 /* ScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 372E81501729886B00E6A0E1 /* ScheduleTest.m */; };
+		372E815217298F1000E6A0E1 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
+		372E815317298F1700E6A0E1 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
+		372E815417298F1D00E6A0E1 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
+		372E815517298F3700E6A0E1 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
+		372E815617298F3A00E6A0E1 /* Course+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A526C17216F8900AEF442 /* Course+Json.m */; };
 		374A526D17216F8900AEF442 /* Course+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A526C17216F8900AEF442 /* Course+Json.m */; };
 		3772465C171DADDA00B2F227 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
@@ -35,6 +46,17 @@
 /* Begin PBXFileReference section */
 		370EDF2E171801970011FCEB /* CourseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseService.h; sourceTree = "<group>"; };
 		370EDF2F171801970011FCEB /* CourseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseService.m; sourceTree = "<group>"; };
+		372E813617297DB600E6A0E1 /* ScheduleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		372E813717297DB600E6A0E1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		372E813917297DB600E6A0E1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		372E813C17297DB600E6A0E1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		372E813D17297DB600E6A0E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		372E813E17297DB600E6A0E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		372E814117297DB600E6A0E1 /* ScheduleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScheduleTests-Info.plist"; sourceTree = "<group>"; };
+		372E814317297DB600E6A0E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		372E814817297DB600E6A0E1 /* ScheduleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleTests-Prefix.pch"; sourceTree = "<group>"; };
+		372E814F1729886B00E6A0E1 /* ScheduleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTest.h; sourceTree = "<group>"; };
+		372E81501729886B00E6A0E1 /* ScheduleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTest.m; sourceTree = "<group>"; };
 		374A526B17216F8900AEF442 /* Course+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Course+Json.h"; sourceTree = "<group>"; };
 		374A526C17216F8900AEF442 /* Course+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Course+Json.m"; sourceTree = "<group>"; };
 		37724659171DADB700B2F227 /* JsonFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFormat.h; sourceTree = "<group>"; };
@@ -56,6 +78,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		372E813217297DB600E6A0E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				372E813817297DB600E6A0E1 /* SenTestingKit.framework in Frameworks */,
+				372E813A17297DB600E6A0E1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		37C0EFC61713244500F6250B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,10 +98,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		372E813B17297DB600E6A0E1 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				372E813C17297DB600E6A0E1 /* AppKit.framework */,
+				372E813D17297DB600E6A0E1 /* CoreData.framework */,
+				372E813E17297DB600E6A0E1 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		372E813F17297DB600E6A0E1 /* ScheduleTests */ = {
+			isa = PBXGroup;
+			children = (
+				372E814F1729886B00E6A0E1 /* ScheduleTest.h */,
+				372E81501729886B00E6A0E1 /* ScheduleTest.m */,
+				372E814017297DB600E6A0E1 /* Supporting Files */,
+			);
+			path = ScheduleTests;
+			sourceTree = "<group>";
+		};
+		372E814017297DB600E6A0E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				372E814117297DB600E6A0E1 /* ScheduleTests-Info.plist */,
+				372E814217297DB600E6A0E1 /* InfoPlist.strings */,
+				372E814817297DB600E6A0E1 /* ScheduleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		37C0EFC01713244500F6250B = {
 			isa = PBXGroup;
 			children = (
 				37C0EFCE1713244500F6250B /* Schedule */,
+				372E813F17297DB600E6A0E1 /* ScheduleTests */,
 				37C0EFCB1713244500F6250B /* Frameworks */,
 				37C0EFCA1713244500F6250B /* Products */,
 				37C0EFD11713244500F6250B /* Supporting Files */,
@@ -81,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				37C0EFC91713244500F6250B /* Schedule */,
+				372E813617297DB600E6A0E1 /* ScheduleTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				37C0EFCC1713244500F6250B /* Foundation.framework */,
+				372E813717297DB600E6A0E1 /* SenTestingKit.framework */,
+				372E813917297DB600E6A0E1 /* Cocoa.framework */,
+				372E813B17297DB600E6A0E1 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,6 +195,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		372E813517297DB600E6A0E1 /* ScheduleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 372E814917297DB600E6A0E1 /* Build configuration list for PBXNativeTarget "ScheduleTests" */;
+			buildPhases = (
+				372E813117297DB600E6A0E1 /* Sources */,
+				372E813217297DB600E6A0E1 /* Frameworks */,
+				372E813317297DB600E6A0E1 /* Resources */,
+				372E813417297DB600E6A0E1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScheduleTests;
+			productName = ScheduleTests;
+			productReference = 372E813617297DB600E6A0E1 /* ScheduleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		37C0EFC81713244500F6250B /* Schedule */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37C0EFD71713244500F6250B /* Build configuration list for PBXNativeTarget "Schedule" */;
@@ -168,11 +252,54 @@
 			projectRoot = "";
 			targets = (
 				37C0EFC81713244500F6250B /* Schedule */,
+				372E813517297DB600E6A0E1 /* ScheduleTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		372E813317297DB600E6A0E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				372E814417297DB600E6A0E1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		372E813417297DB600E6A0E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		372E813117297DB600E6A0E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				372E814C1729807000E6A0E1 /* StudentService.m in Sources */,
+				372E814D1729808600E6A0E1 /* CourseService.m in Sources */,
+				372E81511729886B00E6A0E1 /* ScheduleTest.m in Sources */,
+				372E815217298F1000E6A0E1 /* Student.m in Sources */,
+				372E815317298F1700E6A0E1 /* Course.m in Sources */,
+				372E815417298F1D00E6A0E1 /* Admin.m in Sources */,
+				372E815517298F3700E6A0E1 /* Student+Json.m in Sources */,
+				372E815617298F3A00E6A0E1 /* Course+Json.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		37C0EFC51713244500F6250B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,7 +317,44 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		372E814217297DB600E6A0E1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				372E814317297DB600E6A0E1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		372E814A17297DB600E6A0E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScheduleTests/ScheduleTests-Prefix.pch";
+				INFOPLIST_FILE = "ScheduleTests/ScheduleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		372E814B17297DB600E6A0E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScheduleTests/ScheduleTests-Prefix.pch";
+				INFOPLIST_FILE = "ScheduleTests/ScheduleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		37C0EFD51713244500F6250B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -271,6 +435,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		372E814917297DB600E6A0E1 /* Build configuration list for PBXNativeTarget "ScheduleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				372E814A17297DB600E6A0E1 /* Debug */,
+				372E814B17297DB600E6A0E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		37C0EFC41713244500F6250B /* Build configuration list for PBXProject "Schedule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
