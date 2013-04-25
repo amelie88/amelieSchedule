@@ -11,16 +11,6 @@
 		372E813817297DB600E6A0E1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E813717297DB600E6A0E1 /* SenTestingKit.framework */; };
 		372E813A17297DB600E6A0E1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E813917297DB600E6A0E1 /* Cocoa.framework */; };
 		372E814417297DB600E6A0E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 372E814217297DB600E6A0E1 /* InfoPlist.strings */; };
-		372E814C1729807000E6A0E1 /* StudentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFDE171324A400F6250B /* StudentService.m */; };
-		372E814D1729808600E6A0E1 /* CourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2F171801970011FCEB /* CourseService.m */; };
-		372E81511729886B00E6A0E1 /* ScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 372E81501729886B00E6A0E1 /* ScheduleTest.m */; };
-		372E815217298F1000E6A0E1 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
-		372E815317298F1700E6A0E1 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
-		372E815417298F1D00E6A0E1 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
-		372E815517298F3700E6A0E1 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
-		372E815617298F3A00E6A0E1 /* Course+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A526C17216F8900AEF442 /* Course+Json.m */; };
-		374A526D17216F8900AEF442 /* Course+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A526C17216F8900AEF442 /* Course+Json.m */; };
-		3772465C171DADDA00B2F227 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
@@ -289,14 +279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372E814C1729807000E6A0E1 /* StudentService.m in Sources */,
-				372E814D1729808600E6A0E1 /* CourseService.m in Sources */,
-				372E81511729886B00E6A0E1 /* ScheduleTest.m in Sources */,
-				372E815217298F1000E6A0E1 /* Student.m in Sources */,
-				372E815317298F1700E6A0E1 /* Course.m in Sources */,
-				372E815417298F1D00E6A0E1 /* Admin.m in Sources */,
-				372E815517298F3700E6A0E1 /* Student+Json.m in Sources */,
-				372E815617298F3A00E6A0E1 /* Course+Json.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,8 +292,6 @@
 				37C0EFE5171361B800F6250B /* Course.m in Sources */,
 				37C0EFEE1716D9E600F6250B /* Admin.m in Sources */,
 				370EDF30171801970011FCEB /* CourseService.m in Sources */,
-				3772465C171DADDA00B2F227 /* Student+Json.m in Sources */,
-				374A526D17216F8900AEF442 /* Course+Json.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
