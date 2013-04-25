@@ -32,6 +32,6 @@
 
 typedef void (^AllCoursesResponse)(NSArray *allReadCourses);
 
--(void)getFromDatabase:(NSString*)courseId onCompletion:(AllCoursesResponse) allCoursesResponse;
+-(BOOL)getFromDatabase:(NSString*)courseId onCompletion:(AllCoursesResponse) allCoursesResponse;
 
 @end

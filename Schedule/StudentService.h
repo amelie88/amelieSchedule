@@ -26,8 +26,12 @@
 -(void) read;
 -(NSSet*) allStudents;
 
+
+
 typedef void (^AllStudentsResponse)(NSArray *allReadStudents);
 
 -(void)getFromDatabase:(NSString*)studentId onCompletion:(AllStudentsResponse) allStudentsResponse;
+
+-(void)getAllStudentsFromDatabase:(NSString*)database onCompletion:(AllStudentsResponse) allStudentsResponse;
 
 @end

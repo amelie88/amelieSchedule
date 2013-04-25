@@ -62,7 +62,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     {
         [students[englishKey] addObject:student];
     }
-    [self saveStudent:student];
+//    [self saveStudent:student];
     return YES;
 }
 
@@ -132,6 +132,23 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
 
      
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/student_db/%@", studentId]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+        //Parse response from Json to custom job object and add it to an NSArray
+        NSArray *readStudents = @[data];
+        
+        // Execute the block which was sent as an argument. This will "call back" to caller
+        allStudentsResponse(readStudents);
+    }];
+}
+
+-(void)getAllStudentsFromDatabase:(NSString *)database onCompletion:(AllStudentsResponse)allStudentsResponse
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@", database]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     

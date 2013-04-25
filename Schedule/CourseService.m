@@ -171,8 +171,6 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
 -(BOOL)getFromDatabase:(NSString *)courseId
           onCompletion:(AllCoursesResponse)allCoursesResponse
 {
-     
-    
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/course_db/%@", courseId]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -194,7 +192,7 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
 }
        
 
--(void)weekSchedule:(Student *)student;
+-(BOOL)weekSchedule:(Student *)student;
 {  for (Course *course in courses[allWeekdaysKey])
 { if([student.allCourses isEqualToString:@"yes"])
 {
@@ -216,15 +214,12 @@ if ([course.courseName isEqualToString:@"english"])
     }
    }
  }
+    return YES;
 }
 
 
 
-
-
-
-
--(void)scheduleForDay:(NSString*)weekday : (Student*) student;
+-(BOOL)scheduleForDay:(NSString*)weekday : (Student*) student;
 {for (Course *course in courses[allWeekdaysKey])
 {
     if([student.allCourses isEqualToString:@"yes"])
@@ -247,11 +242,11 @@ if ([course.courseName isEqualToString:@"english"])
         }
     }
   }
- }
+} return YES;
 }
 
 
--(void)chapterForDay:(NSString *)weekday :(Student *)student
+-(BOOL)chapterForDay:(NSString *)weekday :(Student *)student
 {for (Course *course in courses[allWeekdaysKey])
 {
     if([student.allCourses isEqualToString:@"yes"])
@@ -274,10 +269,10 @@ if ([course.courseName isEqualToString:@"english"])
     }
     }
     }
-}
+} return YES;
 }
 
--(void)chaptersForWeek:(Student *)student
+-(BOOL)chaptersForWeek:(Student *)student
 {  for (Course *course in courses[allWeekdaysKey])
 { if([student.allCourses isEqualToString:@"yes"])
 {
@@ -298,7 +293,7 @@ else if([student.english isEqualToString:@"yes"])
         NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
     }
 }
-}
+} return YES;
 }
 
 -(void)loopThroughCourses;
