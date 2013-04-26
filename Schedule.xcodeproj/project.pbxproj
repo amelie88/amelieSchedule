@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		370EDF30171801970011FCEB /* CourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2F171801970011FCEB /* CourseService.m */; };
-		372E813817297DB600E6A0E1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E813717297DB600E6A0E1 /* SenTestingKit.framework */; };
-		372E813A17297DB600E6A0E1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E813917297DB600E6A0E1 /* Cocoa.framework */; };
-		372E814417297DB600E6A0E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 372E814217297DB600E6A0E1 /* InfoPlist.strings */; };
+		375FFCAA172AA51300B52BF5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FFCA9172AA51300B52BF5 /* SenTestingKit.framework */; };
+		375FFCAB172AA51300B52BF5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E813917297DB600E6A0E1 /* Cocoa.framework */; };
+		375FFCB1172AA51300B52BF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 375FFCAF172AA51300B52BF5 /* InfoPlist.strings */; };
+		375FFCBB172AA74300B52BF5 /* ScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCBA172AA74300B52BF5 /* ScheduleTest.m */; };
+		375FFCBC172AA86900B52BF5 /* StudentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFDE171324A400F6250B /* StudentService.m */; };
+		375FFCBD172AA86E00B52BF5 /* CourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2F171801970011FCEB /* CourseService.m */; };
+		375FFCBE172AA87200B52BF5 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
+		375FFCBF172AA89500B52BF5 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
+		375FFCC0172AA89900B52BF5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
@@ -36,19 +42,19 @@
 /* Begin PBXFileReference section */
 		370EDF2E171801970011FCEB /* CourseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseService.h; sourceTree = "<group>"; };
 		370EDF2F171801970011FCEB /* CourseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseService.m; sourceTree = "<group>"; };
-		372E813617297DB600E6A0E1 /* ScheduleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		372E813717297DB600E6A0E1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		372E813917297DB600E6A0E1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		372E813C17297DB600E6A0E1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		372E813D17297DB600E6A0E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		372E813E17297DB600E6A0E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		372E814117297DB600E6A0E1 /* ScheduleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScheduleTests-Info.plist"; sourceTree = "<group>"; };
-		372E814317297DB600E6A0E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		372E814817297DB600E6A0E1 /* ScheduleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleTests-Prefix.pch"; sourceTree = "<group>"; };
-		372E814F1729886B00E6A0E1 /* ScheduleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTest.h; sourceTree = "<group>"; };
-		372E81501729886B00E6A0E1 /* ScheduleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTest.m; sourceTree = "<group>"; };
 		374A526B17216F8900AEF442 /* Course+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Course+Json.h"; sourceTree = "<group>"; };
 		374A526C17216F8900AEF442 /* Course+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Course+Json.m"; sourceTree = "<group>"; };
+		375FFCA8172AA51300B52BF5 /* ScheduleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		375FFCA9172AA51300B52BF5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		375FFCAE172AA51300B52BF5 /* ScheduleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScheduleTests-Info.plist"; sourceTree = "<group>"; };
+		375FFCB0172AA51300B52BF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		375FFCB5172AA51300B52BF5 /* ScheduleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleTests-Prefix.pch"; sourceTree = "<group>"; };
+		375FFCB9172AA74300B52BF5 /* ScheduleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTest.h; sourceTree = "<group>"; };
+		375FFCBA172AA74300B52BF5 /* ScheduleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTest.m; sourceTree = "<group>"; };
 		37724659171DADB700B2F227 /* JsonFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFormat.h; sourceTree = "<group>"; };
 		3772465A171DADD900B2F227 /* Student+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Student+Json.h"; sourceTree = "<group>"; };
 		3772465B171DADD900B2F227 /* Student+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Student+Json.m"; sourceTree = "<group>"; };
@@ -68,12 +74,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		372E813217297DB600E6A0E1 /* Frameworks */ = {
+		375FFCA4172AA51300B52BF5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372E813817297DB600E6A0E1 /* SenTestingKit.framework in Frameworks */,
-				372E813A17297DB600E6A0E1 /* Cocoa.framework in Frameworks */,
+				375FFCAA172AA51300B52BF5 /* SenTestingKit.framework in Frameworks */,
+				375FFCAB172AA51300B52BF5 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,22 +104,22 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		372E813F17297DB600E6A0E1 /* ScheduleTests */ = {
+		375FFCAC172AA51300B52BF5 /* ScheduleTests */ = {
 			isa = PBXGroup;
 			children = (
-				372E814F1729886B00E6A0E1 /* ScheduleTest.h */,
-				372E81501729886B00E6A0E1 /* ScheduleTest.m */,
-				372E814017297DB600E6A0E1 /* Supporting Files */,
+				375FFCAD172AA51300B52BF5 /* Supporting Files */,
+				375FFCB9172AA74300B52BF5 /* ScheduleTest.h */,
+				375FFCBA172AA74300B52BF5 /* ScheduleTest.m */,
 			);
 			path = ScheduleTests;
 			sourceTree = "<group>";
 		};
-		372E814017297DB600E6A0E1 /* Supporting Files */ = {
+		375FFCAD172AA51300B52BF5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				372E814117297DB600E6A0E1 /* ScheduleTests-Info.plist */,
-				372E814217297DB600E6A0E1 /* InfoPlist.strings */,
-				372E814817297DB600E6A0E1 /* ScheduleTests-Prefix.pch */,
+				375FFCAE172AA51300B52BF5 /* ScheduleTests-Info.plist */,
+				375FFCAF172AA51300B52BF5 /* InfoPlist.strings */,
+				375FFCB5172AA51300B52BF5 /* ScheduleTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -122,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				37C0EFCE1713244500F6250B /* Schedule */,
-				372E813F17297DB600E6A0E1 /* ScheduleTests */,
+				375FFCAC172AA51300B52BF5 /* ScheduleTests */,
 				37C0EFCB1713244500F6250B /* Frameworks */,
 				37C0EFCA1713244500F6250B /* Products */,
 				37C0EFD11713244500F6250B /* Supporting Files */,
@@ -133,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				37C0EFC91713244500F6250B /* Schedule */,
-				372E813617297DB600E6A0E1 /* ScheduleTests.octest */,
+				375FFCA8172AA51300B52BF5 /* ScheduleTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,8 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				37C0EFCC1713244500F6250B /* Foundation.framework */,
-				372E813717297DB600E6A0E1 /* SenTestingKit.framework */,
 				372E813917297DB600E6A0E1 /* Cocoa.framework */,
+				375FFCA9172AA51300B52BF5 /* SenTestingKit.framework */,
 				372E813B17297DB600E6A0E1 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -185,14 +191,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		372E813517297DB600E6A0E1 /* ScheduleTests */ = {
+		375FFCA7172AA51300B52BF5 /* ScheduleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 372E814917297DB600E6A0E1 /* Build configuration list for PBXNativeTarget "ScheduleTests" */;
+			buildConfigurationList = 375FFCB8172AA51300B52BF5 /* Build configuration list for PBXNativeTarget "ScheduleTests" */;
 			buildPhases = (
-				372E813117297DB600E6A0E1 /* Sources */,
-				372E813217297DB600E6A0E1 /* Frameworks */,
-				372E813317297DB600E6A0E1 /* Resources */,
-				372E813417297DB600E6A0E1 /* ShellScript */,
+				375FFCA3172AA51300B52BF5 /* Sources */,
+				375FFCA4172AA51300B52BF5 /* Frameworks */,
+				375FFCA5172AA51300B52BF5 /* Resources */,
+				375FFCA6172AA51300B52BF5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -200,7 +206,7 @@
 			);
 			name = ScheduleTests;
 			productName = ScheduleTests;
-			productReference = 372E813617297DB600E6A0E1 /* ScheduleTests.octest */;
+			productReference = 375FFCA8172AA51300B52BF5 /* ScheduleTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		37C0EFC81713244500F6250B /* Schedule */ = {
@@ -242,24 +248,24 @@
 			projectRoot = "";
 			targets = (
 				37C0EFC81713244500F6250B /* Schedule */,
-				372E813517297DB600E6A0E1 /* ScheduleTests */,
+				375FFCA7172AA51300B52BF5 /* ScheduleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		372E813317297DB600E6A0E1 /* Resources */ = {
+		375FFCA5172AA51300B52BF5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372E814417297DB600E6A0E1 /* InfoPlist.strings in Resources */,
+				375FFCB1172AA51300B52BF5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		372E813417297DB600E6A0E1 /* ShellScript */ = {
+		375FFCA6172AA51300B52BF5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -275,10 +281,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		372E813117297DB600E6A0E1 /* Sources */ = {
+		375FFCA3172AA51300B52BF5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				375FFCBB172AA74300B52BF5 /* ScheduleTest.m in Sources */,
+				375FFCBC172AA86900B52BF5 /* StudentService.m in Sources */,
+				375FFCBD172AA86E00B52BF5 /* CourseService.m in Sources */,
+				375FFCBE172AA87200B52BF5 /* Admin.m in Sources */,
+				375FFCBF172AA89500B52BF5 /* Student.m in Sources */,
+				375FFCC0172AA89900B52BF5 /* Course.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,10 +310,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		372E814217297DB600E6A0E1 /* InfoPlist.strings */ = {
+		375FFCAF172AA51300B52BF5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				372E814317297DB600E6A0E1 /* en */,
+				375FFCB0172AA51300B52BF5 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -309,7 +321,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		372E814A17297DB600E6A0E1 /* Debug */ = {
+		375FFCB6172AA51300B52BF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -322,7 +334,7 @@
 			};
 			name = Debug;
 		};
-		372E814B17297DB600E6A0E1 /* Release */ = {
+		375FFCB7172AA51300B52BF5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -415,11 +427,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		372E814917297DB600E6A0E1 /* Build configuration list for PBXNativeTarget "ScheduleTests" */ = {
+		375FFCB8172AA51300B52BF5 /* Build configuration list for PBXNativeTarget "ScheduleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				372E814A17297DB600E6A0E1 /* Debug */,
-				372E814B17297DB600E6A0E1 /* Release */,
+				375FFCB6172AA51300B52BF5 /* Debug */,
+				375FFCB7172AA51300B52BF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

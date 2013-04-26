@@ -2,7 +2,7 @@
 //  ScheduleTest.m
 //  Schedule
 //
-//  Created by Sjostrand Gereholt Amelie on 2013-04-25.
+//  Created by Sjostrand Gereholt Amelie on 2013-04-26.
 //  Copyright (c) 2013 Sjostrand Gereholt Amelie. All rights reserved.
 //
 
@@ -12,6 +12,8 @@
 #import "Student.h"
 #import "Course.h"
 #import "Admin.h"
+//#import "Course+Json.h"
+//#import "Student+Json.h"
 
 static NSString * const englishKey = @"english_key";
 static NSString * const historyKey = @"history_key";
@@ -51,26 +53,26 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
 
 -(void)tearDown
 {
-        studentservice = nil;
-        students = nil;
-        courseservice = nil;
-        courses = nil;
+    studentservice = nil;
+    students = nil;
+    courseservice = nil;
+    courses = nil;
 }
-    
-   
-    
+
+
+
 - (void)testAddStudent
 {
     Student *Amelie = [[Student alloc] initWithName:@"Amelie" allCourses:@"yes" history:@"yes" english:@"yes"];
     
     BOOL result = [studentservice addStudent:Amelie];
     
-     STAssertTrue(result, @"Adding a student should be possible");
+    STAssertTrue(result, @"Adding a student should be possible");
 }
 
 -(void)testAddCourse
 {
-     Course *historyMonday = [[Course alloc] initWithCourseName:@"history" weekday:@"monday" time:@"10-12" teacher:@"Bert Karlsson" classroom:@"1A" chapter:@"3-5" message:@"Ojoj" _id:[[NSUUID UUID] UUIDString]];
+    Course *historyMonday = [[Course alloc] initWithCourseName:@"history" weekday:@"monday" time:@"10-12" teacher:@"Bert Karlsson" classroom:@"1A" chapter:@"3-5" message:@"Ojoj" _id:[[NSUUID UUID] UUIDString]];
     Admin *admin = [[Admin alloc] initWithUsername:@"admin" password:@"mySecretPassword"];
     
     BOOL result = [courseservice addCourse:historyMonday:admin];
