@@ -1,16 +1,13 @@
 //
-//  CourseService.m
+//  StudentAndCourseService.m
 //  Schedule
 //
-//  Created by Sjostrand Gereholt Amelie on 2013-04-12.
+//  Created by Sjostrand Gereholt Amelie on 2013-04-27.
 //  Copyright (c) 2013 Sjostrand Gereholt Amelie. All rights reserved.
 //
 
-#import "CourseService.h"
-#import "Course.h"
-#import "Student.h"
-#import "Course+Json.h"
-#import "StudentService.h"
+#import "StudentAndCourseService.h"
+
 
 static NSString *const mondayKey = @"monday_key";
 static NSString *const tuesdayKey = @"tuesday_key";
@@ -20,10 +17,18 @@ static NSString *const fridayKey = @"friday_key";
 static NSString *const allWeekdaysKey = @"allweekdays_key";
 
 
-@implementation CourseService
+static NSString * const englishKey = @"english_key";
+static NSString * const historyKey = @"history_key";
+static NSString * const allSubjectsKey = @"allsubjects_key";
+
+
+@implementation StudentAndCourseService
 {
     NSDictionary *courses;
     NSOperationQueue *queue;
+    
+    NSDictionary *students;
+
 }
 
 - (id)init
@@ -35,7 +40,7 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
 {
     self = [super init];
     
-    if (self) { 
+    if (self) {
         courses = @{mondayKey: [[NSMutableSet alloc] init],
                     tuesdayKey: [[NSMutableSet alloc] init],
                     wednesdayKey: [[NSMutableSet alloc] init],
@@ -51,6 +56,33 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     }
     return self;
 }
+
+
+//- (id)init
+//{
+//    return [self initWithStudents:@[]];
+//}
+
+- (id)initWithStudents:(NSArray *)studentsToAdd
+{
+    self = [super init];
+    
+    if (self) {
+        students = @{englishKey: [[NSMutableSet alloc] init],
+                     historyKey: [[NSMutableSet alloc] init],
+                     allSubjectsKey: [[NSMutableSet alloc] init]
+                     
+                     };
+        queue = [[NSOperationQueue alloc] init];
+        
+        for(Student *student in studentsToAdd) {
+            [self addStudent:student];
+        }
+        
+    }
+    return self;
+}
+
 
 -(BOOL)addCourse:(Course *)course : (Admin*) admin
 { if([admin.password isEqualToString:@"mySecretPassword"]){
@@ -70,9 +102,31 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
         [courses[fridayKey] addObject:course];
         [courses[allWeekdaysKey] addObject:course];
         
-}
+    }
 } return YES;
 }
+
+
+-(BOOL)addStudent:(Student *)student
+{
+    if([student.allCourses isEqualToString:@"yes"])
+    {
+        [students[allSubjectsKey] addObject:student];
+    }
+    else if ([student.history isEqualToString:@"yes"])
+    {
+        [students[historyKey] addObject:student];
+    }
+    else if ([student.english isEqualToString:@"yes"])
+    {
+        [students[englishKey] addObject:student];
+    }
+    //    [self saveStudent:student];
+    return YES;
+}
+
+
+
 
 -(BOOL)saveCourse:(Course *)course
 {
@@ -103,6 +157,38 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     
     return YES;
 }
+
+-(BOOL)saveStudent:(Student*) student
+{
+    
+    NSDictionary *studentAsJson = [self serializeStudentToJson:student];
+    NSData *studentAsData = [NSJSONSerialization dataWithJSONObject:studentAsJson options:NSJSONWritingPrettyPrinted error:NULL];
+    
+    //initialize url that is going to be fetched.
+    NSURL *url = [NSURL URLWithString:@"http://amelie.iriscouch.com/student_db"];
+    
+    //initialize a request from url
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
+    
+    //set http method
+    [request setHTTPMethod:@"POST"];
+    
+    //initialize a post data
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    //set post data of request
+    [request setHTTPBody:studentAsData];
+    
+    NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:nil];
+    [connection start];
+    
+    NSRunLoop *loop = [NSRunLoop currentRunLoop];
+    [loop run];
+    
+    return YES;
+}
+
+
 
 -(BOOL)updateCourse:(Course *)course : (NSString *)courseId : (NSString*) revNumber
 {
@@ -135,6 +221,7 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     return YES;
 }
 
+
 -(BOOL)deleteCourse:(Course *)course :(NSString *)courseId :(NSString *)revNumber
 {
     NSDictionary *courseAsJson = [self serializeCourseToJson:course];
@@ -159,15 +246,10 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     return YES;
 }
 
--(id)serializeCourseToJson:(id) object
-{
-    NSObject *result = [[NSObject alloc] init];
-    result = [object jsonValue];
-    return result;
-}
 
 
--(BOOL)getFromDatabase:(NSString *)courseId
+
+-(BOOL)getCourseFromDatabase:(NSString *)courseId
           onCompletion:(AllCoursesResponse)allCoursesResponse
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/course_db/%@", courseId]];
@@ -181,12 +263,28 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
         NSArray *readCourses = @[data];
         
         // Execute the block which was sent as an argument. This will "call back" to caller
-       allCoursesResponse(readCourses);
-        
-        
+        allCoursesResponse(readCourses);
     }];
-    
     return YES;
+}
+
+
+
+-(void)getStudentFromDatabase:(NSString *)studentId onCompletion:(AllStudentsResponse)allStudentsResponse
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/student_db/%@", studentId]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+        //Parse response from Json to custom job object and add it to an NSArray
+        NSArray *readStudents = @[data];
+        
+        // Execute the block which was sent as an argument. This will "call back" to caller
+        allStudentsResponse(readStudents);
+    }];
 }
 
 
@@ -207,6 +305,22 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
     }];
 }
 
+-(void)getAllStudentsFromDatabase:(NSString *)database onCompletion:(AllStudentsResponse)allStudentsResponse
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@/_design/student_db/_view/names", database]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+        //Parse response from Json to custom job object and add it to an NSArray
+        NSArray *readStudents = @[data];
+        
+        // Execute the block which was sent as an argument. This will "call back" to caller
+        allStudentsResponse(readStudents);
+    }];
+}
 
 
 -(void)loadAllCoursesFromDB:(NSString *)database
@@ -217,30 +331,48 @@ static NSString *const allWeekdaysKey = @"allweekdays_key";
         }}];
     [[NSRunLoop currentRunLoop] run];
 }
-       
+
+-(void)loadAllStudentsFromDB:(NSString *)database
+{
+    [self getAllStudentsFromDatabase:database onCompletion:^(NSArray *allReadStudents) {
+        for(id name in allReadStudents){
+            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
+        }}];
+    [[NSRunLoop currentRunLoop] run];
+}
+
+-(void)loadEverythingFromDB
+{
+    [self loadAllStudentsFromDB:@"student_db"];
+    [self loadAllCoursesFromDB:@"course_db"];
+}
+
 
 -(BOOL)weekSchedule:(Student *)student;
-{  for (Course *course in courses[allWeekdaysKey])
+{
+    [self loadAllCoursesFromDB:@"student_db"];
+    [self loadAllStudentsFromDB:@"course_db"];
+    for (Course *course in courses[allWeekdaysKey])
 { if([student.allCourses isEqualToString:@"yes"])
 {
     NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
 }
-    else if ([student.history isEqualToString:@"yes"])
+else if ([student.history isEqualToString:@"yes"])
 {
     if ([course.courseName isEqualToString:@"history"])
     {
-           NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
     }
 }
-
-    else if([student.english isEqualToString:@"yes"])
+    
+else if([student.english isEqualToString:@"yes"])
 {
-if ([course.courseName isEqualToString:@"english"])
+    if ([course.courseName isEqualToString:@"english"])
     {
-           NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
     }
-   }
- }
+}
+}
     return YES;
 }
 
@@ -248,32 +380,32 @@ if ([course.courseName isEqualToString:@"english"])
 
 -(BOOL)scheduleForDay:(NSString*)weekday : (Student*) student;
 {
-
+    
     [self loadAllCoursesFromDB:@"course_db"];
 //    [StudentService loadAllStudentsFromDB:@"student_db"];
     for (Course *course in courses[allWeekdaysKey])
-{
-    if([student.allCourses isEqualToString:@"yes"])
-        {if([course.weekday isEqualToString:weekday])
-            {
-                NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-            }
-    } else if ([student.history isEqualToString:@"yes"])
-    {if([course.courseName isEqualToString:@"history"])
+    {
+        if([student.allCourses isEqualToString:@"yes"])
         {if([course.weekday isEqualToString:weekday])
         {
             NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
         }
-    }
-    } else if ([student.english isEqualToString:@"yes"])
-    {if([course.courseName isEqualToString:@"english"])
+        } else if ([student.history isEqualToString:@"yes"])
+        {if([course.courseName isEqualToString:@"history"])
+        {if([course.weekday isEqualToString:weekday])
+        {
+            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        }
+        }
+        } else if ([student.english isEqualToString:@"yes"])
+        {if([course.courseName isEqualToString:@"english"])
         {if ([course.weekday isEqualToString:weekday])
         {
-        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
         }
-    }
-  }
-} return YES;
+        }
+        }
+    } return YES;
 }
 
 
@@ -303,6 +435,7 @@ if ([course.courseName isEqualToString:@"english"])
 } return YES;
 }
 
+
 -(BOOL)chaptersForWeek:(Student *)student
 {  for (Course *course in courses[allWeekdaysKey])
 { if([student.allCourses isEqualToString:@"yes"])
@@ -327,22 +460,29 @@ else if([student.english isEqualToString:@"yes"])
 } return YES;
 }
 
--(void)loopThroughCourses;
-{
-    for(Course *course in courses){
-        NSLog(@"%@", course);
-    }
-}
 
 
--(NSSet*) allCourses
-{
-    return [courses[mondayKey] setByAddingObjectsFromSet:courses[tuesdayKey]];
-}
+
 
 -(void)checkId:(Course *)course
 {
     NSLog(@"%@", course._id);
+}
+
+
+
+-(id)serializeCourseToJson:(id) object
+{
+    NSObject *result = [[NSObject alloc] init];
+    result = [object jsonValue];
+    return result;
+}
+
+-(id)serializeStudentToJson:(id) object
+{
+    NSObject *result = [[NSObject alloc] init];
+    result = [object jsonValue];
+    return result;
 }
 
 
