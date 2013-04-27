@@ -17,6 +17,8 @@
 		375FFCBE172AA87200B52BF5 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
 		375FFCBF172AA89500B52BF5 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
 		375FFCC0172AA89900B52BF5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
+		375FFCC3172AD1E900B52BF5 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
+		375FFCC4172AD1EC00B52BF5 /* Course+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A526C17216F8900AEF442 /* Course+Json.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
@@ -291,6 +293,8 @@
 				375FFCBE172AA87200B52BF5 /* Admin.m in Sources */,
 				375FFCBF172AA89500B52BF5 /* Student.m in Sources */,
 				375FFCC0172AA89900B52BF5 /* Course.m in Sources */,
+				375FFCC3172AD1E900B52BF5 /* Student+Json.m in Sources */,
+				375FFCC4172AD1EC00B52BF5 /* Course+Json.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +438,7 @@
 				375FFCB7172AA51300B52BF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37C0EFC41713244500F6250B /* Build configuration list for PBXProject "Schedule" */ = {
 			isa = XCConfigurationList;
