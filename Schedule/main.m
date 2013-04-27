@@ -69,7 +69,7 @@ int main(int argc, const char * argv[])
 //        [courseservice checkId:historyMonday];
        
         
-        [courseservice weekSchedule:Amelie];
+//        [courseservice weekSchedule:Amelie];
  //       [courseservice scheduleForDay:@"monday":Amelie];
         
         
@@ -78,14 +78,18 @@ int main(int argc, const char * argv[])
 //        [courseservice updateCourse:historyMonday : @"1218190B-F843-4FDF-96A9-2A7309ECDE67"];
         
 //        [courseservice deleteCourse:historyMonday :@"D8793FFE-328B-43EB-912C-00998835A597" :@"3-06e53e4f2fce646c36a0403a3ff668bd"];
+        
+        
 
 //        [studentservice getAllStudentsFromDatabase:@"student_db" onCompletion:^(NSArray *allReadStudents) {
-//                        for(id _id in allReadStudents){
-//                            NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);
+//                        for(id name in allReadStudents){
+//                            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
 //                        }}];
 //                }[[NSRunLoop currentRunLoop] run];
 
-        
+        [studentservice loadAllStudentsFromDB:@"student_db"];
+
+    
 //        [studentservice getFromDatabase:@"DC188C02-69BE-4437-BE98-F026FDA41D23" onCompletion:^(NSArray *allReadStudents) {
 //            for(id _id in allReadStudents){
 //                NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);

@@ -34,4 +34,6 @@ typedef void (^AllStudentsResponse)(NSArray *allReadStudents);
 
 -(void)getAllStudentsFromDatabase:(NSString*)database onCompletion:(AllStudentsResponse) allStudentsResponse;
 
+-(void)loadAllStudentsFromDB:(NSString*)database;
+
 @end

@@ -148,7 +148,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
 
 -(void)getAllStudentsFromDatabase:(NSString *)database onCompletion:(AllStudentsResponse)allStudentsResponse
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@", database]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@/_design/student_db/_view/names", database]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
@@ -162,6 +162,17 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
         allStudentsResponse(readStudents);
     }];
 }
+
+-(void)loadAllStudentsFromDB:(NSString *)database
+{
+    [self getAllStudentsFromDatabase:database onCompletion:^(NSArray *allReadStudents) {
+        for(id name in allReadStudents){
+            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
+        }}];
+    [[NSRunLoop currentRunLoop] run];
+}
+
+
 
 
 
