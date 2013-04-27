@@ -19,6 +19,9 @@
 		375FFCC0172AA89900B52BF5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
 		375FFCC3172AD1E900B52BF5 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
 		375FFCC4172AD1EC00B52BF5 /* Course+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A526C17216F8900AEF442 /* Course+Json.m */; };
+		375FFCC5172C5BD800B52BF5 /* Course+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A526C17216F8900AEF442 /* Course+Json.m */; };
+		375FFCC6172C5BDD00B52BF5 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
+		375FFCC9172C675500B52BF5 /* StudentAndCourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
@@ -57,6 +60,8 @@
 		375FFCB5172AA51300B52BF5 /* ScheduleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleTests-Prefix.pch"; sourceTree = "<group>"; };
 		375FFCB9172AA74300B52BF5 /* ScheduleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTest.h; sourceTree = "<group>"; };
 		375FFCBA172AA74300B52BF5 /* ScheduleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTest.m; sourceTree = "<group>"; };
+		375FFCC7172C675400B52BF5 /* StudentAndCourseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentAndCourseService.h; sourceTree = "<group>"; };
+		375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentAndCourseService.m; sourceTree = "<group>"; };
 		37724659171DADB700B2F227 /* JsonFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFormat.h; sourceTree = "<group>"; };
 		3772465A171DADD900B2F227 /* Student+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Student+Json.h"; sourceTree = "<group>"; };
 		3772465B171DADD900B2F227 /* Student+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Student+Json.m"; sourceTree = "<group>"; };
@@ -176,6 +181,8 @@
 				3772465B171DADD900B2F227 /* Student+Json.m */,
 				374A526B17216F8900AEF442 /* Course+Json.h */,
 				374A526C17216F8900AEF442 /* Course+Json.m */,
+				375FFCC7172C675400B52BF5 /* StudentAndCourseService.h */,
+				375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -308,6 +315,9 @@
 				37C0EFE5171361B800F6250B /* Course.m in Sources */,
 				37C0EFEE1716D9E600F6250B /* Admin.m in Sources */,
 				370EDF30171801970011FCEB /* CourseService.m in Sources */,
+				375FFCC5172C5BD800B52BF5 /* Course+Json.m in Sources */,
+				375FFCC6172C5BDD00B52BF5 /* Student+Json.m in Sources */,
+				375FFCC9172C675500B52BF5 /* StudentAndCourseService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
