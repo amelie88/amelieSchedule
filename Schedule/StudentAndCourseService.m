@@ -102,8 +102,9 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
         [courses[fridayKey] addObject:course];
         [courses[allWeekdaysKey] addObject:course];
         
-    }
-} return YES;
+    } [self saveCourse:course];
+}   
+    return YES;
 }
 
 
@@ -121,7 +122,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     {
         [students[englishKey] addObject:student];
     }
-    //    [self saveStudent:student];
+        [self saveStudent:student];
     return YES;
 }
 
@@ -135,7 +136,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     NSData *courseAsData = [NSJSONSerialization dataWithJSONObject:courseAsJson options:NSJSONWritingPrettyPrinted error:NULL];
     
     //initialize url that is going to be fetched.
-    NSURL *url = [NSURL URLWithString:@"http://amelie.iriscouch.com/course_db"];
+    NSURL *url = [NSURL URLWithString:@"http://amelie.iriscouch.com/studentcourse_db"];
     
     //initialize a request from url
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
@@ -165,7 +166,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     NSData *studentAsData = [NSJSONSerialization dataWithJSONObject:studentAsJson options:NSJSONWritingPrettyPrinted error:NULL];
     
     //initialize url that is going to be fetched.
-    NSURL *url = [NSURL URLWithString:@"http://amelie.iriscouch.com/student_db"];
+    NSURL *url = [NSURL URLWithString:@"http://amelie.iriscouch.com/studentcourse_db"];
     
     //initialize a request from url
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
@@ -322,143 +323,172 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     }];
 }
 
-
--(void)loadAllCoursesFromDB:(NSString *)database
+-(void)getAllStudentsCoursesFromDatabase:(NSString *)database onCompletion:(AllStudentsResponse)allStudentsResponse
 {
-    [self getAllCoursesFromDatabase:database onCompletion:^(NSArray *allReadCourses) {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@/_design/studentcourse_db/_view/all", database]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+        //Parse response from Json to custom job object and add it to an NSArray
+        NSArray *readStudents = @[data];
+        
+        // Execute the block which was sent as an argument. This will "call back" to caller
+        allStudentsResponse(readStudents);
+    }];
+}
+
+
+-(void)loadAllStudentsCoursesFromDB:(NSString *)database
+{
+    [self getAllStudentsCoursesFromDatabase:database onCompletion:^(NSArray *allReadCourses) {
         for(id name in allReadCourses){
             NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
         }}];
     [[NSRunLoop currentRunLoop] run];
 }
 
--(void)loadAllStudentsFromDB:(NSString *)database
-{
-    [self getAllStudentsFromDatabase:database onCompletion:^(NSArray *allReadStudents) {
-        for(id name in allReadStudents){
-            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
-        }}];
-    [[NSRunLoop currentRunLoop] run];
-}
+
+
+//-(void)loadAllStudentsFromDB:(NSString *)database
+//{
+//    [self getAllStudentsFromDatabase:database onCompletion:^(NSArray *allReadStudents) {
+//        for(id name in allReadStudents){
+//            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
+//        }}];
+//    [[NSRunLoop currentRunLoop] run];
+//}
+
+
 
 -(void)loadEverythingFromDB
 {
-    [self loadAllStudentsFromDB:@"student_db"];
-    [self loadAllCoursesFromDB:@"course_db"];
+    [self loadAllStudentsCoursesFromDB:@"studentcourse_db"];
 }
 
 
--(BOOL)weekSchedule:(Student *)student;
-{
-    [self loadAllCoursesFromDB:@"student_db"];
-    [self loadAllStudentsFromDB:@"course_db"];
-    for (Course *course in courses[allWeekdaysKey])
-{ if([student.allCourses isEqualToString:@"yes"])
-{
-    NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-}
-else if ([student.history isEqualToString:@"yes"])
-{
-    if ([course.courseName isEqualToString:@"history"])
+-(void)allStudentsMessage:(NSString *)message :(Admin *)admin
+{ if ([admin.password isEqualToString:@"mySecretPassword"]){
+    for(Course* course in courses[allWeekdaysKey])
     {
-        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        course.message = message;
     }
 }
-    
-else if([student.english isEqualToString:@"yes"])
-{
-    if ([course.courseName isEqualToString:@"english"])
-    {
-        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-    }
-}
-}
-    return YES;
 }
 
-
-
--(BOOL)scheduleForDay:(NSString*)weekday : (Student*) student;
-{
-    
-    [self loadAllCoursesFromDB:@"course_db"];
-//    [StudentService loadAllStudentsFromDB:@"student_db"];
-    for (Course *course in courses[allWeekdaysKey])
-    {
-        if([student.allCourses isEqualToString:@"yes"])
-        {if([course.weekday isEqualToString:weekday])
-        {
-            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-        }
-        } else if ([student.history isEqualToString:@"yes"])
-        {if([course.courseName isEqualToString:@"history"])
-        {if([course.weekday isEqualToString:weekday])
-        {
-            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-        }
-        }
-        } else if ([student.english isEqualToString:@"yes"])
-        {if([course.courseName isEqualToString:@"english"])
-        {if ([course.weekday isEqualToString:weekday])
-        {
-            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
-        }
-        }
-        }
-    } return YES;
-}
-
-
--(BOOL)chapterForDay:(NSString *)weekday :(Student *)student
-{for (Course *course in courses[allWeekdaysKey])
-{
-    if([student.allCourses isEqualToString:@"yes"])
-    {if([course.weekday isEqualToString:weekday])
-    {
-        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
-    }
-    } else if ([student.history isEqualToString:@"yes"])
-    {if([course.courseName isEqualToString:@"history"])
-    {if([course.weekday isEqualToString:weekday])
-    {
-        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
-    }
-    }
-    } else if ([student.english isEqualToString:@"yes"])
-    {if([course.courseName isEqualToString:@"english"])
-    {if ([course.weekday isEqualToString:weekday])
-    {
-        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
-    }
-    }
-    }
-} return YES;
-}
-
-
--(BOOL)chaptersForWeek:(Student *)student
-{  for (Course *course in courses[allWeekdaysKey])
-{ if([student.allCourses isEqualToString:@"yes"])
-{
-    NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
-}
-else if ([student.history isEqualToString:@"yes"])
-{
-    if ([course.courseName isEqualToString:@"history"])
-    {
-        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
-    }
-}
-    
-else if([student.english isEqualToString:@"yes"])
-{
-    if ([course.courseName isEqualToString:@"english"])
-    {
-        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
-    }
-}
-} return YES;
-}
+//-(BOOL)weekSchedule:(Student *)student;
+//{
+//    [self loadAllCoursesFromDB:@"student_db"];
+//    [self loadAllStudentsFromDB:@"course_db"];
+//    for (Course *course in courses[allWeekdaysKey])
+//{ if([student.allCourses isEqualToString:@"yes"])
+//{
+//    NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+//}
+//else if ([student.history isEqualToString:@"yes"])
+//{
+//    if ([course.courseName isEqualToString:@"history"])
+//    {
+//        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+//    }
+//}
+//    
+//else if([student.english isEqualToString:@"yes"])
+//{
+//    if ([course.courseName isEqualToString:@"english"])
+//    {
+//        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+//    }
+//}
+//}
+//    return YES;
+//}
+//
+//
+//
+//-(BOOL)scheduleForDay:(NSString*)weekday : (Student*) student;
+//{
+//    
+//    [self loadAllCoursesFromDB:@"course_db"];
+////    [StudentService loadAllStudentsFromDB:@"student_db"];
+//    for (Course *course in courses[allWeekdaysKey])
+//    {
+//        if([student.allCourses isEqualToString:@"yes"])
+//        {if([course.weekday isEqualToString:weekday])
+//        {
+//            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+//        }
+//        } else if ([student.history isEqualToString:@"yes"])
+//        {if([course.courseName isEqualToString:@"history"])
+//        {if([course.weekday isEqualToString:weekday])
+//        {
+//            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+//        }
+//        }
+//        } else if ([student.english isEqualToString:@"yes"])
+//        {if([course.courseName isEqualToString:@"english"])
+//        {if ([course.weekday isEqualToString:weekday])
+//        {
+//            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+//        }
+//        }
+//        }
+//    } return YES;
+//}
+//
+//
+//-(BOOL)chapterForDay:(NSString *)weekday :(Student *)student
+//{for (Course *course in courses[allWeekdaysKey])
+//{
+//    if([student.allCourses isEqualToString:@"yes"])
+//    {if([course.weekday isEqualToString:weekday])
+//    {
+//        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+//    }
+//    } else if ([student.history isEqualToString:@"yes"])
+//    {if([course.courseName isEqualToString:@"history"])
+//    {if([course.weekday isEqualToString:weekday])
+//    {
+//        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+//    }
+//    }
+//    } else if ([student.english isEqualToString:@"yes"])
+//    {if([course.courseName isEqualToString:@"english"])
+//    {if ([course.weekday isEqualToString:weekday])
+//    {
+//        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+//    }
+//    }
+//    }
+//} return YES;
+//}
+//
+//
+//-(BOOL)chaptersForWeek:(Student *)student
+//{  for (Course *course in courses[allWeekdaysKey])
+//{ if([student.allCourses isEqualToString:@"yes"])
+//{
+//    NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+//}
+//else if ([student.history isEqualToString:@"yes"])
+//{
+//    if ([course.courseName isEqualToString:@"history"])
+//    {
+//        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+//    }
+//}
+//    
+//else if([student.english isEqualToString:@"yes"])
+//{
+//    if ([course.courseName isEqualToString:@"english"])
+//    {
+//        NSLog(@"%@ %@ %@", course.weekday, course.courseName, course.chapter);
+//    }
+//}
+//} return YES;
+//}
 
 
 

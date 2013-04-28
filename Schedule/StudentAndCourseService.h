@@ -41,7 +41,7 @@ typedef void (^AllCoursesResponse)(NSArray *allReadCourses);
 -(void)loadEverythingFromDB;
 
 
-
+-(void)allStudentsMessage:(NSString*) message : (Admin*)admin;
 
 
 -(id)initWithStudents:(NSArray *) students;
@@ -60,6 +60,8 @@ typedef void (^AllStudentsResponse)(NSArray *allReadStudents);
 
 -(void)getAllStudentsFromDatabase:(NSString*)database onCompletion:(AllStudentsResponse) allStudentsResponse;
 
--(void)loadAllStudentsFromDB:(NSString*)database;
+-(void)getAllStudentsCoursesFromDatabase:(NSString*)database onCompletion:(AllStudentsResponse) allStudentsResponse;
+
+-(void)loadAllStudentsCoursesFromDB:(NSString*)database;
 
 @end
