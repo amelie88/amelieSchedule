@@ -29,7 +29,7 @@ int main(int argc, const char * argv[])
 //////
 //////        
 //       Student *Amelie = [[Student alloc] initWithName:@"Amelie" allCourses:@"yes" history:@"yes" english:@"yes"];
-//        Student *Kristoffer = [[Student alloc] initWithName:@"Kristoffer" allCourses:@"yes" history:@"yes" english:@"no"];
+//        Student *Kristoffer = [[Student alloc] initWithName:@"Kristoffer" type:@"student" allCourses:@"yes" history:@"yes" english:@"no"];
 //        Student *Jens = [[Student alloc] initWithName:@"Jens" allCourses:@"yes" history:@"yes" english:@"no"];
 //        Student *Emma = [[Student alloc] initWithName:@"Emma" allCourses:@"yes" history:@"no" english:@"no"];
 ////
@@ -45,18 +45,18 @@ int main(int argc, const char * argv[])
 //
 //
 //        Course *historyMonday = [[Course alloc] initWithCourseName:@"history" weekday:@"monday" time:@"10-12" teacher:@"Bert Karlsson" classroom:@"1A" chapter:@"3-5" message:@"Ojoj" _id:@"historyMonday"];
-//        Course *historyTuesday = [[Course alloc] initWithCourseName:@"history" weekday:@"tuesday" time:@"12-14" teacher:@"Erik Jonsson" classroom:@"1B" chapter:@"7-8" message:@"Kom i tid!" _id:[[NSUUID UUID] UUIDString]];
+//        Course *historyTuesday = [[Course alloc] initWithCourseName:@"history" type:@"course" weekday:@"tuesday" time:@"12-14" teacher:@"Erik Jonsson" classroom:@"1B" chapter:@"7-8" message:@"Kom i tid!" _id:@"historyTuesday"];
 //        Course *historyWednesday = [[Course alloc] initWithCourseName:@"history" weekday:@"wednesday" time:@"13-14" teacher:@"Bert Karlsson" classroom:@"7C" chapter:@"4-6" message:@"Gör uppgifter!" _id:[[NSUUID UUID] UUIDString]];
 //        Course *historyThursday = [[Course alloc] initWithCourseName:@"history" weekday:@"thursday" time:@"14-15" teacher:@"Burt Karlsson" classroom:@"8C" chapter:@"4-6" message:@"Vikarie" _id:[[NSUUID UUID] UUIDString]];
 //        Course *englishMonday = [[Course alloc] initWithCourseName:@"english" weekday:@"monday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Halloj" _id:[[NSUUID UUID] UUIDString]];
 //        Course *englishTuesday = [[Course alloc] initWithCourseName:@"english" weekday:@"tuesday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Work hard" _id:[[NSUUID UUID] UUIDString]];
  //       Course *englishWednesday = [[Course alloc] initWithCourseName:@"english" weekday:@"wednesday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Sjuk" _id:[[NSUUID UUID] UUIDString]];
 
-//       Admin *admin = [[Admin alloc] initWithUsername:@"admin1" password:@"mySecretPassword"];
+ //      Admin *admin = [[Admin alloc] initWithUsername:@"admin1" password:@"mySecretPassword"];
 //        
 //        
  //      [service addCourse:historyMonday:admin];
-//        [service addCourse:historyTuesday:admin];
+  //      [service addCourse:historyTuesday:admin];
 //        [service addCourse:historyWednesday:admin];
 //        [service addCourse:historyThursday:admin];
 //        [service addCourse:englishMonday:admin];

@@ -12,6 +12,7 @@
 @interface Course : NSObject
 
 @property(nonatomic, copy) NSString *courseName;
+@property(nonatomic, copy) NSString *type;
 @property(nonatomic, copy) NSString *weekday;
 @property(nonatomic, copy) NSString *time;
 @property(nonatomic, copy) NSString *teacher;
@@ -21,6 +22,7 @@
 @property (nonatomic, copy) NSString *_id;
 
 -(id)initWithCourseName:(NSString *) courseName
+                   type:(NSString *) type
                 weekday:(NSString *) weekday
                    time:(NSString *) time
                 teacher:(NSString *) teacher

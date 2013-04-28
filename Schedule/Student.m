@@ -16,6 +16,7 @@
     Student *student = [[self alloc] init];
     student->__id = studentAsJson[@"_id"];
     student.name = studentAsJson[@"name"];
+    student.type = studentAsJson[@"type"];
     student.allCourses = studentAsJson[@"allCourses"];
     student.history = studentAsJson[@"history"];
     student.english = studentAsJson[@"english"];
@@ -24,10 +25,11 @@
 
 -(id)init 
 {
-    return [self initWithName:@"" allCourses:@"" history:@"" english:@""];
+    return [self initWithName:@"" type:@"" allCourses:@"" history:@"" english:@""];
 }
 
 -(id)initWithName:(NSString *) name
+             type:(NSString *) type
             allCourses:(NSString *) allCourses
                history:(NSString *) history
           english:(NSString*) english;
@@ -36,6 +38,7 @@
     
     if (self) {
         self.name = name;
+        self.type = type;
         self.allCourses = allCourses;
         self.history = history;
         self.english = english;
