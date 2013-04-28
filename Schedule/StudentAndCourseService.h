@@ -64,4 +64,8 @@ typedef void (^AllStudentsResponse)(NSArray *allReadStudents);
 
 -(void)loadAllStudentsCoursesFromDB:(NSString*)database;
 
+-(void)loadStudentFromDB:(NSString*)studentId;
+
+-(void)loadCourseFromDB:(NSString*)courseId;
+
 @end

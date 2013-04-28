@@ -63,8 +63,9 @@ int main(int argc, const char * argv[])
 //        [service addCourse:englishTuesday:admin];
 //       [service addCourse:englishWednesday:admin];
         
-        [service loadEverythingFromDB];
+//        [service loadEverythingFromDB];
         
+        [service loadCourseFromDB:@"historyTuesday"];
 
         
 //        [service loadAllCoursesFromDB:@"course_db"];

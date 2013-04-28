@@ -253,7 +253,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
 -(BOOL)getCourseFromDatabase:(NSString *)courseId
           onCompletion:(AllCoursesResponse)allCoursesResponse
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/course_db/%@", courseId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/studentcourse_db/%@", courseId]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
@@ -273,7 +273,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
 
 -(void)getStudentFromDatabase:(NSString *)studentId onCompletion:(AllStudentsResponse)allStudentsResponse
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/student_db/%@", studentId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/studentcourse_db/%@", studentId]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
@@ -289,39 +289,39 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
 }
 
 
--(void)getAllCoursesFromDatabase:(NSString *)database onCompletion:(AllCoursesResponse)allCoursesResponse
-{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@/_design/course_db/_view/course", database]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-        //Parse response from Json to custom job object and add it to an NSArray
-        NSArray *readCourses = @[data];
-        
-        // Execute the block which was sent as an argument. This will "call back" to caller
-        allCoursesResponse(readCourses);
-    }];
-}
+//-(void)getAllCoursesFromDatabase:(NSString *)database onCompletion:(AllCoursesResponse)allCoursesResponse
+//{
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@/_design/course_db/_view/course", database]];
+//    
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+//    
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+//    
+//    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+//        //Parse response from Json to custom job object and add it to an NSArray
+//        NSArray *readCourses = @[data];
+//        
+//        // Execute the block which was sent as an argument. This will "call back" to caller
+//        allCoursesResponse(readCourses);
+//    }];
+//}
 
--(void)getAllStudentsFromDatabase:(NSString *)database onCompletion:(AllStudentsResponse)allStudentsResponse
-{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@/_design/student_db/_view/names", database]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-        //Parse response from Json to custom job object and add it to an NSArray
-        NSArray *readStudents = @[data];
-        
-        // Execute the block which was sent as an argument. This will "call back" to caller
-        allStudentsResponse(readStudents);
-    }];
-}
+//-(void)getAllStudentsFromDatabase:(NSString *)database onCompletion:(AllStudentsResponse)allStudentsResponse
+//{
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@/_design/student_db/_view/names", database]];
+//    
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+//    
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+//    
+//    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+//        //Parse response from Json to custom job object and add it to an NSArray
+//        NSArray *readStudents = @[data];
+//        
+//        // Execute the block which was sent as an argument. This will "call back" to caller
+//        allStudentsResponse(readStudents);
+//    }];
+//}
 
 -(void)getAllStudentsCoursesFromDatabase:(NSString *)database onCompletion:(AllStudentsResponse)allStudentsResponse
 {
@@ -350,6 +350,23 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     [[NSRunLoop currentRunLoop] run];
 }
 
+-(void)loadStudentFromDB:(NSString*)studentId
+{
+    [self getStudentFromDatabase:studentId onCompletion:^(NSArray *allReadCourses) {
+        for(id name in allReadCourses){
+            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
+        }}];
+    [[NSRunLoop currentRunLoop] run];
+}
+
+-(void)loadCourseFromDB:(NSString*)courseId
+{
+    [self getStudentFromDatabase:courseId onCompletion:^(NSArray *allReadCourses) {
+        for(id name in allReadCourses){
+            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
+        }}];
+    [[NSRunLoop currentRunLoop] run];
+}
 
 
 //-(void)loadAllStudentsFromDB:(NSString *)database
