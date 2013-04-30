@@ -18,54 +18,63 @@
 @interface StudentAndCourseService : NSObject
 
 -(id)initWithCourses:(NSArray *) courses;
+-(id)initWithStudents:(NSArray *) students;
+
 -(BOOL)addCourse:(Course *)course : (Admin*) admin;
+-(BOOL)addStudent:(Student *)student;
+
 -(BOOL)saveCourse:(Course *)course;
+-(BOOL) saveStudent:(Student*) student;
+
 -(BOOL)updateCourse:(Course *)course : (NSString*)courseId : (NSString*)revNumber;
+
 -(BOOL)deleteCourse:(Course *)course : (NSString*)courseId : (NSString*)revNumber;
--(BOOL)weekSchedule:(Student*) student;
+-(BOOL)removeStudent:(Student *)student;
+
+-(BOOL)scheduleForWeek:(Student*) student;
 -(BOOL)scheduleForDay:(NSString*)weekday : (Student*) student;
+
 -(BOOL)chapterForDay:(NSString*)weekday : (Student*) student;
 -(BOOL)chaptersForWeek:(Student*)student;
--(void)loopThroughCourses;
--(NSSet*)allCourses;
 
--(void)checkId:(Course*)course;
 
-typedef void (^AllCoursesResponse)(NSArray *allReadCourses);
 
--(BOOL)getCourseFromDatabase:(NSString*)courseId onCompletion:(AllCoursesResponse) allCoursesResponse;
--(void)getAllCoursesFromDatabase:(NSString*)course onCompletion:(AllCoursesResponse) allCoursesResponse;
+
+typedef void (^AllResponse)(NSArray *allReadData);
+
+-(BOOL)getCourseWithId:(NSString*)courseId onCompletion:(AllResponse) allDataResponse;
+-(void)loadCourseWithId:(NSString*)courseId;
+
+-(void)getStudentWithId:(NSString*)studentId onCompletion:(AllResponse) allDataResponse;
+-(void)loadStudentWithId:(NSString*)studentId;
+
+-(void)getAllCourses:(NSString*)course onCompletion:(AllResponse) allDataResponse;
+-(void)getAllStudents:(NSString*)database onCompletion:(AllResponse) allDataResponse;
+
+
+
+
+-(void)getAllStudentsCoursesFromDatabase:(NSString*)database onCompletion:(AllResponse) allDataResponse;
+-(void)loadAllStudentsCoursesFromDB:(NSString*)database;
 
 -(void)loadAllCoursesFromDB:(NSString*)database;
-
+-(void)loadAllStudentsFromDB:(NSString*)database;
 -(void)loadEverythingFromDB;
 
 
 -(void)allStudentsMessage:(NSString*) message : (Admin*)admin;
 
+-(void)updateCourseMessage:(Course*)course : (NSString*)courseId : (NSString*)revNumber : (NSString*) newmessage : (NSString*) adminpassword;
 
--(id)initWithStudents:(NSArray *) students;
--(BOOL)addStudent:(Student *)student;
 
--(BOOL) removeStudent:(Student *)student;
 
--(BOOL) saveStudent:(Student*) student;
 
--(void) read;
--(NSSet*) allStudents;
 
-typedef void (^AllStudentsResponse)(NSArray *allReadStudents);
 
--(void)getStudentFromDatabase:(NSString*)studentId onCompletion:(AllStudentsResponse) allStudentsResponse;
 
--(void)getAllStudentsFromDatabase:(NSString*)database onCompletion:(AllStudentsResponse) allStudentsResponse;
 
--(void)getAllStudentsCoursesFromDatabase:(NSString*)database onCompletion:(AllStudentsResponse) allStudentsResponse;
 
--(void)loadAllStudentsCoursesFromDB:(NSString*)database;
 
--(void)loadStudentFromDB:(NSString*)studentId;
 
--(void)loadCourseFromDB:(NSString*)courseId;
 
 @end

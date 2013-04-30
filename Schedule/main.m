@@ -23,50 +23,59 @@ int main(int argc, const char * argv[])
     @autoreleasepool { 
         
 
-//        CourseService *courseservice = [[CourseService alloc] init];
-//        StudentService *studentservice = [[StudentService alloc] init];
+
         StudentAndCourseService *service = [[StudentAndCourseService alloc] init];
 //////
 //////        
-//       Student *Amelie = [[Student alloc] initWithName:@"Amelie" allCourses:@"yes" history:@"yes" english:@"yes"];
-//        Student *Kristoffer = [[Student alloc] initWithName:@"Kristoffer" type:@"student" allCourses:@"yes" history:@"yes" english:@"no"];
-//        Student *Jens = [[Student alloc] initWithName:@"Jens" allCourses:@"yes" history:@"yes" english:@"no"];
-//        Student *Emma = [[Student alloc] initWithName:@"Emma" allCourses:@"yes" history:@"no" english:@"no"];
-////
+//        Student *Amelie = [[Student alloc] initWithName:@"Amelie" type:@"Student" allCourses:@"Yes" history:@"No" english:@"No" _id:@"Amelie"];
+//        Student *Kristoffer = [[Student alloc] initWithName:@"Kristoffer" type:@"Student" allCourses:@"Yes" history:@"Yes" english:@"No" _id:@"Kristoffer"];
+//        Student *Jens = [[Student alloc] initWithName:@"Jens" type:@"Student" allCourses:@"Yes" history:@"Yes" english:@"No" _id:@"Jens"];
+ //       Student *Emma = [[Student alloc] initWithName:@"Emma" type:@"Student" allCourses:@"Yes" history:@"No" english:@"No" _id:@"Emma"];
 
-////        
+        
 //        [service addStudent:Amelie];
-//        [service addStudent:Kristoffer];
+ //       [service addStudent:Kristoffer];
 //        [service addStudent:Jens];
- //      [service addStudent:Amelie];
+ //      [service addStudent:Emma];
 //
 //        
   //      [service addAllStudents];
 //
 //
-//        Course *historyMonday = [[Course alloc] initWithCourseName:@"history" weekday:@"monday" time:@"10-12" teacher:@"Bert Karlsson" classroom:@"1A" chapter:@"3-5" message:@"Ojoj" _id:@"historyMonday"];
-//        Course *historyTuesday = [[Course alloc] initWithCourseName:@"history" type:@"course" weekday:@"tuesday" time:@"12-14" teacher:@"Erik Jonsson" classroom:@"1B" chapter:@"7-8" message:@"Kom i tid!" _id:@"historyTuesday"];
-//        Course *historyWednesday = [[Course alloc] initWithCourseName:@"history" weekday:@"wednesday" time:@"13-14" teacher:@"Bert Karlsson" classroom:@"7C" chapter:@"4-6" message:@"Gör uppgifter!" _id:[[NSUUID UUID] UUIDString]];
-//        Course *historyThursday = [[Course alloc] initWithCourseName:@"history" weekday:@"thursday" time:@"14-15" teacher:@"Burt Karlsson" classroom:@"8C" chapter:@"4-6" message:@"Vikarie" _id:[[NSUUID UUID] UUIDString]];
-//        Course *englishMonday = [[Course alloc] initWithCourseName:@"english" weekday:@"monday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Halloj" _id:[[NSUUID UUID] UUIDString]];
-//        Course *englishTuesday = [[Course alloc] initWithCourseName:@"english" weekday:@"tuesday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Work hard" _id:[[NSUUID UUID] UUIDString]];
- //       Course *englishWednesday = [[Course alloc] initWithCourseName:@"english" weekday:@"wednesday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4-5" message:@"Sjuk" _id:[[NSUUID UUID] UUIDString]];
+//        Course *historyMonday = [[Course alloc] initWithCourseName:@"History" type:@"Course" weekday:@"Monday" time:@"10-12" teacher:@"Karin Bengtson" classroom:@"1A" chapter:@"1" message:@"hej" _id:@"historyMonday"];
+//        Course *historyTuesday = [[Course alloc] initWithCourseName:@"History" type:@"Course" weekday:@"Tuesday" time:@"12-14" teacher:@"Erik Jonsson" classroom:@"1A" chapter:@"2" message:@"Testar" _id:@"historyTuesday"];
+//        Course *historyWednesday = [[Course alloc] initWithCourseName:@"History" type:@"Course" weekday:@"Wednesday" time:@"13-14" teacher:@"Karin Bengtson" classroom:@"1A" chapter:@"3" message:@"" _id:@"historyWednesday"];
+//        Course *historyThursday = [[Course alloc] initWithCourseName:@"History" type:@"Course" weekday:@"Thursday" time:@"14-15" teacher:@"Karin Bengtson" classroom:@"1A" chapter:@"4" message:@"" _id:@"historyThursday"];
+        Course *historyFriday = [[Course alloc] initWithCourseName:@"History" type:@"Course" weekday:@"Friday" time:@"14-15" teacher:@"Karin Bengtson" classroom:@"1A" chapter:@"5" message:@"" _id:@"historyFriday"];
+        
+//        Course *englishMonday = [[Course alloc] initWithCourseName:@"English" type:@"Course" weekday:@"Monday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"2" message:@"" _id:@"englishMonday"];
+//        Course *englishTuesday = [[Course alloc] initWithCourseName:@"English" type:@"Course" weekday:@"Tuesday" time:@"10-11" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"3" message:@"" _id:@"englishTuesday"];
+//        Course *englishWednesday = [[Course alloc] initWithCourseName:@"English" type:@"Course" weekday:@"Wednesday" time:@"11-12" teacher:@"Sara Jonsson" classroom:@"1B" chapter:@"4" message:@"" _id:@"englishWednesday"];
 
- //      Admin *admin = [[Admin alloc] initWithUsername:@"admin1" password:@"mySecretPassword"];
+//    Admin *admin = [[Admin alloc] initWithUsername:@"admin1" password:@"mySecretPassword"];
 //        
 //        
- //      [service addCourse:historyMonday:admin];
-  //      [service addCourse:historyTuesday:admin];
-//        [service addCourse:historyWednesday:admin];
+//       [service addCourse:historyMonday:admin];
+ //       [service addCourse:historyTuesday:admin];
+ //      [service addCourse:historyWednesday:admin];
 //        [service addCourse:historyThursday:admin];
 //        [service addCourse:englishMonday:admin];
-//        [service addCourse:englishTuesday:admin];
-//       [service addCourse:englishWednesday:admin];
+//       [service addCourse:englishTuesday:admin];
+//      [service addCourse:englishWednesday:admin];
         
 //        [service loadEverythingFromDB];
         
-        [service loadCourseFromDB:@"historyTuesday"];
-
+    //[service loadCourseWithId:@"historyTuesday"];
+        
+        // klar
+//        [service updateCourse:historyFriday :@"historyFriday" :@"3-4d7e0c4a3e81cf3853dc8ccf41ad2903"];
+        
+        //klar
+//       [service loadCourseWithId:@"historyFriday"];
+        [service loadStudentWithId:@"Amelie"];
+        
+        //klar
+//       [service updateCourseMessage:historyFriday :@"historyFriday" :@"2-09d4c1b56d47c10349f77c8d43c5a823" :@"Kom i tid" :@"mypassword"];
         
 //        [service loadAllCoursesFromDB:@"course_db"];
 //        [service loadAllStudentsFromDB:@"student_db"];
@@ -90,31 +99,6 @@ int main(int argc, const char * argv[])
 //        [courseservice deleteCourse:historyMonday :@"D8793FFE-328B-43EB-912C-00998835A597" :@"3-06e53e4f2fce646c36a0403a3ff668bd"];
         
         
-
-//        [studentservice getAllStudentsFromDatabase:@"student_db" onCompletion:^(NSArray *allReadStudents) {
-//                        for(id name in allReadStudents){
-//                            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
-//                        }}];
-//                }[[NSRunLoop currentRunLoop] run];
-
-//        [studentservice loadAllStudentsFromDB:@"student_db"];
-
-    
-//        [studentservice getFromDatabase:@"DC188C02-69BE-4437-BE98-F026FDA41D23" onCompletion:^(NSArray *allReadStudents) {
-//            for(id _id in allReadStudents){
-//                NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);
-//            }}];
-//    }[[NSRunLoop currentRunLoop] run];
-    
-//
-//    
-//    
-//        [courseservice getFromDatabase:@"D8793FFE-328B-43EB-912C-00998835A597" onCompletion:^(NSArray *allReadCourses){
-//          for(id _id in allReadCourses){
-//              NSLog(@"%@", [[NSString alloc] initWithData:_id encoding:NSUTF8StringEncoding]);
-//          }}];
-//  } [[NSRunLoop currentRunLoop] run];
-
 
     }
     return 0;

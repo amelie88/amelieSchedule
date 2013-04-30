@@ -197,7 +197,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     NSData *courseAsData = [NSJSONSerialization dataWithJSONObject:courseAsJson options:NSJSONWritingPrettyPrinted error:NULL];
     
     //initialize url that is going to be fetched.
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/course_db/%@?rev=%@", courseId, revNumber]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/studentcourse_db/%@?rev=%@", courseId, revNumber]];
     
     //initialize a request from url
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
@@ -210,7 +210,7 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     
     //initialize a post data
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"hejsan" forHTTPHeaderField:@"message"];
+//    [request setValue:@"hejsan" forHTTPHeaderField:@"message"];
     
     
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:nil];
@@ -222,13 +222,25 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     return YES;
 }
 
+-(void)updateCourseMessage:(Course*)course : (NSString*)courseId : (NSString*)revNumber : (NSString*) newmessage : (NSString*) adminpassword
+{
+    if ([adminpassword isEqualToString:@"mypassword"]){
+
+//        [self loadCourseWithId:courseId];
+        course.message = newmessage;
+        [self updateCourse:course :courseId :revNumber];
+        
+    }
+}
+
+
 
 -(BOOL)deleteCourse:(Course *)course :(NSString *)courseId :(NSString *)revNumber
 {
     NSDictionary *courseAsJson = [self serializeCourseToJson:course];
     NSData *courseAsData = [NSJSONSerialization dataWithJSONObject:courseAsJson options:NSJSONWritingPrettyPrinted error:NULL];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/course_db/%@?rev=%@", courseId, revNumber]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/studentcourse_db/%@?rev=%@", courseId, revNumber]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
     
@@ -247,11 +259,27 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     return YES;
 }
 
+// merge deleteCourse and removestudent, both parts are needed
+-(BOOL)removeStudent:(Student *)student
+{
+    if([student.allCourses isEqualToString:@"yes"])
+    {
+        [students[allSubjectsKey] removeObject:student];
+    }
+    else if ([student.history isEqualToString:@"yes"])
+    {
+        [students[historyKey] removeObject:student];
+    }
+    else if ([student.english isEqualToString:@"yes"])
+    {
+        [students[englishKey] removeObject:student];
+    }
+    return YES;
+}
 
 
-
--(BOOL)getCourseFromDatabase:(NSString *)courseId
-          onCompletion:(AllCoursesResponse)allCoursesResponse
+-(BOOL)getCourseWithId:(NSString *)courseId
+          onCompletion:(AllResponse)allDataResponse
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/studentcourse_db/%@", courseId]];
     
@@ -261,17 +289,17 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         //Parse response from Json to custom job object and add it to an NSArray
-        NSArray *readCourses = @[data];
+        NSArray *readData = @[data];
         
         // Execute the block which was sent as an argument. This will "call back" to caller
-        allCoursesResponse(readCourses);
+        allDataResponse(readData);
     }];
     return YES;
 }
 
 
 
--(void)getStudentFromDatabase:(NSString *)studentId onCompletion:(AllStudentsResponse)allStudentsResponse
+-(void)getStudentWithId:(NSString *)studentId onCompletion:(AllResponse)allDataResponse
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/studentcourse_db/%@", studentId]];
     
@@ -281,10 +309,10 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         //Parse response from Json to custom job object and add it to an NSArray
-        NSArray *readStudents = @[data];
+        NSArray *readData = @[data];
         
         // Execute the block which was sent as an argument. This will "call back" to caller
-        allStudentsResponse(readStudents);
+        allDataResponse(readData);
     }];
 }
 
@@ -323,9 +351,9 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
 //    }];
 //}
 
--(void)getAllStudentsCoursesFromDatabase:(NSString *)database onCompletion:(AllStudentsResponse)allStudentsResponse
+-(void)getStudentsOrCoursesWithView:(NSString *)view onCompletion:(AllResponse)allDataResponse
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/%@/_design/studentcourse_db/_view/all", database]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://amelie.iriscouch.com/studentcourse_db/_design/studentcourse_db/_view/%@", view]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
@@ -333,11 +361,44 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         //Parse response from Json to custom job object and add it to an NSArray
-        NSArray *readStudents = @[data];
+        NSArray *readData = @[data];
         
         // Execute the block which was sent as an argument. This will "call back" to caller
-        allStudentsResponse(readStudents);
+        allDataResponse(readData);
     }];
+}
+
+
+// Can this one replace loadCoursesFromDB and loa
+-(void)loadStudentsOrCourses:(NSString*)studentsorcourses
+{
+    [self getStudentsOrCoursesWithView:studentsorcourses onCompletion:^(NSArray *allReadData) {
+        for(id name in allReadData){
+            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
+        }}];
+    [[NSRunLoop currentRunLoop] run];
+}
+
+
+
+
+-(void)loadCourseWithId:(NSString*)courseId
+{
+    [self getCourseWithId:courseId onCompletion:^(NSArray *allReadData) {
+        for(id name in allReadData){
+            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
+        }}];
+    [[NSRunLoop currentRunLoop] run];
+}
+
+
+-(void)loadStudentWithId:(NSString*)studentId
+{
+    [self getStudentWithId:studentId onCompletion:^(NSArray *allReadStudents) {
+        for(id name in allReadStudents){
+            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
+        }}];
+    [[NSRunLoop currentRunLoop] run];
 }
 
 
@@ -350,23 +411,9 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
     [[NSRunLoop currentRunLoop] run];
 }
 
--(void)loadStudentFromDB:(NSString*)studentId
-{
-    [self getStudentFromDatabase:studentId onCompletion:^(NSArray *allReadCourses) {
-        for(id name in allReadCourses){
-            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
-        }}];
-    [[NSRunLoop currentRunLoop] run];
-}
 
--(void)loadCourseFromDB:(NSString*)courseId
-{
-    [self getStudentFromDatabase:courseId onCompletion:^(NSArray *allReadCourses) {
-        for(id name in allReadCourses){
-            NSLog(@"%@", [[NSString alloc] initWithData:name encoding:NSUTF8StringEncoding]);
-        }}];
-    [[NSRunLoop currentRunLoop] run];
-}
+
+
 
 
 //-(void)loadAllStudentsFromDB:(NSString *)database
@@ -422,6 +469,35 @@ static NSString * const allSubjectsKey = @"allsubjects_key";
 //}
 //    return YES;
 //}
+
+
+-(BOOL)scheduleForWeek:(Student *)student;
+{
+    for (Course *course in courses[allWeekdaysKey])
+    { if([student.allCourses isEqualToString:@"Yes"])
+    {
+        NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+    }
+    else if ([student.history isEqualToString:@"Yes"])
+    {
+        if ([course.courseName isEqualToString:@"History"])
+        {
+            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        }
+    }
+        
+    else if([student.english isEqualToString:@"Yes"])
+    {
+        if ([course.courseName isEqualToString:@"English"])
+        {
+            NSLog(@"%@ %@ %@ %@ %@ %@ %@", course.courseName, course.weekday, course.time, course.teacher, course.classroom, course.chapter, course.message);
+        }
+    }
+    }
+    return YES;
+}
+
+
 //
 //
 //

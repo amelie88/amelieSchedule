@@ -14,7 +14,7 @@
 +(id) studentFromJson:(NSDictionary *)studentAsJson
 {
     Student *student = [[self alloc] init];
-    student->__id = studentAsJson[@"_id"];
+    student._id = studentAsJson[@"_id"];
     student.name = studentAsJson[@"name"];
     student.type = studentAsJson[@"type"];
     student.allCourses = studentAsJson[@"allCourses"];
@@ -25,14 +25,15 @@
 
 -(id)init 
 {
-    return [self initWithName:@"" type:@"" allCourses:@"" history:@"" english:@""];
+    return [self initWithName:@"" type:@"" allCourses:@"" history:@"" english:@"" _id:@""];
 }
 
 -(id)initWithName:(NSString *) name
              type:(NSString *) type
             allCourses:(NSString *) allCourses
                history:(NSString *) history
-          english:(NSString*) english;
+          english:(NSString*) english
+              _id:(NSString*) _id;
 {
     self = [super init];
     
@@ -42,15 +43,15 @@
         self.allCourses = allCourses;
         self.history = history;
         self.english = english;
-        self->__id = [[NSUUID UUID] UUIDString];
+        self._id = _id;
     }
     return self;
 }
 
--(NSUInteger)hash
-{
-    return 37 * [self._id hash];
-}
+//-(NSUInteger)hash
+//{
+//    return 37 * [self._id hash];
+//}
 
 
 
