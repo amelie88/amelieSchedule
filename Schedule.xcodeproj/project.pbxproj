@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		370EDF30171801970011FCEB /* CourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2F171801970011FCEB /* CourseService.m */; };
 		375FFCAA172AA51300B52BF5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FFCA9172AA51300B52BF5 /* SenTestingKit.framework */; };
 		375FFCAB172AA51300B52BF5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E813917297DB600E6A0E1 /* Cocoa.framework */; };
 		375FFCB1172AA51300B52BF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 375FFCAF172AA51300B52BF5 /* InfoPlist.strings */; };
 		375FFCBB172AA74300B52BF5 /* ScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCBA172AA74300B52BF5 /* ScheduleTest.m */; };
-		375FFCBC172AA86900B52BF5 /* StudentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFDE171324A400F6250B /* StudentService.m */; };
-		375FFCBD172AA86E00B52BF5 /* CourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EDF2F171801970011FCEB /* CourseService.m */; };
 		375FFCBE172AA87200B52BF5 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
 		375FFCBF172AA89500B52BF5 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
 		375FFCC0172AA89900B52BF5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
@@ -25,7 +22,6 @@
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
-		37C0EFDF171324A400F6250B /* StudentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFDE171324A400F6250B /* StudentService.m */; };
 		37C0EFE2171324B700F6250B /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
 		37C0EFE5171361B800F6250B /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
 		37C0EFEE1716D9E600F6250B /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
@@ -45,8 +41,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		370EDF2E171801970011FCEB /* CourseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseService.h; sourceTree = "<group>"; };
-		370EDF2F171801970011FCEB /* CourseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseService.m; sourceTree = "<group>"; };
 		372E813917297DB600E6A0E1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		372E813C17297DB600E6A0E1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		372E813D17297DB600E6A0E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -70,8 +64,6 @@
 		37C0EFCF1713244500F6250B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		37C0EFD21713244500F6250B /* Schedule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schedule-Prefix.pch"; sourceTree = "<group>"; };
 		37C0EFD31713244500F6250B /* Schedule.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Schedule.1; sourceTree = "<group>"; };
-		37C0EFDD171324A400F6250B /* StudentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentService.h; sourceTree = "<group>"; };
-		37C0EFDE171324A400F6250B /* StudentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentService.m; sourceTree = "<group>"; };
 		37C0EFE0171324B700F6250B /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		37C0EFE1171324B700F6250B /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		37C0EFE3171361B700F6250B /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
@@ -168,12 +160,8 @@
 				37C0EFCF1713244500F6250B /* main.m */,
 				37C0EFE0171324B700F6250B /* Student.h */,
 				37C0EFE1171324B700F6250B /* Student.m */,
-				37C0EFDD171324A400F6250B /* StudentService.h */,
-				37C0EFDE171324A400F6250B /* StudentService.m */,
 				37C0EFE3171361B700F6250B /* Course.h */,
 				37C0EFE4171361B700F6250B /* Course.m */,
-				370EDF2E171801970011FCEB /* CourseService.h */,
-				370EDF2F171801970011FCEB /* CourseService.m */,
 				37C0EFEC1716D9E600F6250B /* Admin.h */,
 				37C0EFED1716D9E600F6250B /* Admin.m */,
 				37724659171DADB700B2F227 /* JsonFormat.h */,
@@ -295,8 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				375FFCBB172AA74300B52BF5 /* ScheduleTest.m in Sources */,
-				375FFCBC172AA86900B52BF5 /* StudentService.m in Sources */,
-				375FFCBD172AA86E00B52BF5 /* CourseService.m in Sources */,
 				375FFCBE172AA87200B52BF5 /* Admin.m in Sources */,
 				375FFCBF172AA89500B52BF5 /* Student.m in Sources */,
 				375FFCC0172AA89900B52BF5 /* Course.m in Sources */,
@@ -310,11 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				37C0EFD01713244500F6250B /* main.m in Sources */,
-				37C0EFDF171324A400F6250B /* StudentService.m in Sources */,
 				37C0EFE2171324B700F6250B /* Student.m in Sources */,
 				37C0EFE5171361B800F6250B /* Course.m in Sources */,
 				37C0EFEE1716D9E600F6250B /* Admin.m in Sources */,
-				370EDF30171801970011FCEB /* CourseService.m in Sources */,
 				375FFCC5172C5BD800B52BF5 /* Course+Json.m in Sources */,
 				375FFCC6172C5BDD00B52BF5 /* Student+Json.m in Sources */,
 				375FFCC9172C675500B52BF5 /* StudentAndCourseService.m in Sources */,
