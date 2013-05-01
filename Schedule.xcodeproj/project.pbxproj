@@ -11,7 +11,6 @@
 		375FFCAB172AA51300B52BF5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E813917297DB600E6A0E1 /* Cocoa.framework */; };
 		375FFCB1172AA51300B52BF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 375FFCAF172AA51300B52BF5 /* InfoPlist.strings */; };
 		375FFCBB172AA74300B52BF5 /* ScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCBA172AA74300B52BF5 /* ScheduleTest.m */; };
-		375FFCBE172AA87200B52BF5 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
 		375FFCBF172AA89500B52BF5 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
 		375FFCC0172AA89900B52BF5 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
 		375FFCC3172AD1E900B52BF5 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
@@ -19,12 +18,13 @@
 		375FFCC5172C5BD800B52BF5 /* Course+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 374A526C17216F8900AEF442 /* Course+Json.m */; };
 		375FFCC6172C5BDD00B52BF5 /* Student+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3772465B171DADD900B2F227 /* Student+Json.m */; };
 		375FFCC9172C675500B52BF5 /* StudentAndCourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */; };
+		375FFCCC17306CD500B52BF5 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCCB17306CD500B52BF5 /* Message.m */; };
+		375FFCCF1730705C00B52BF5 /* Message+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCCE1730705B00B52BF5 /* Message+Json.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
 		37C0EFE2171324B700F6250B /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE1171324B700F6250B /* Student.m */; };
 		37C0EFE5171361B800F6250B /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFE4171361B700F6250B /* Course.m */; };
-		37C0EFEE1716D9E600F6250B /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFED1716D9E600F6250B /* Admin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +56,10 @@
 		375FFCBA172AA74300B52BF5 /* ScheduleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTest.m; sourceTree = "<group>"; };
 		375FFCC7172C675400B52BF5 /* StudentAndCourseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentAndCourseService.h; sourceTree = "<group>"; };
 		375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentAndCourseService.m; sourceTree = "<group>"; };
+		375FFCCA17306CD400B52BF5 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		375FFCCB17306CD500B52BF5 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		375FFCCD1730705B00B52BF5 /* Message+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+Json.h"; sourceTree = "<group>"; };
+		375FFCCE1730705B00B52BF5 /* Message+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+Json.m"; sourceTree = "<group>"; };
 		37724659171DADB700B2F227 /* JsonFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFormat.h; sourceTree = "<group>"; };
 		3772465A171DADD900B2F227 /* Student+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Student+Json.h"; sourceTree = "<group>"; };
 		3772465B171DADD900B2F227 /* Student+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Student+Json.m"; sourceTree = "<group>"; };
@@ -68,8 +72,6 @@
 		37C0EFE1171324B700F6250B /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		37C0EFE3171361B700F6250B /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		37C0EFE4171361B700F6250B /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
-		37C0EFEC1716D9E600F6250B /* Admin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Admin.h; sourceTree = "<group>"; };
-		37C0EFED1716D9E600F6250B /* Admin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Admin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +164,6 @@
 				37C0EFE1171324B700F6250B /* Student.m */,
 				37C0EFE3171361B700F6250B /* Course.h */,
 				37C0EFE4171361B700F6250B /* Course.m */,
-				37C0EFEC1716D9E600F6250B /* Admin.h */,
-				37C0EFED1716D9E600F6250B /* Admin.m */,
 				37724659171DADB700B2F227 /* JsonFormat.h */,
 				3772465A171DADD900B2F227 /* Student+Json.h */,
 				3772465B171DADD900B2F227 /* Student+Json.m */,
@@ -171,6 +171,10 @@
 				374A526C17216F8900AEF442 /* Course+Json.m */,
 				375FFCC7172C675400B52BF5 /* StudentAndCourseService.h */,
 				375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */,
+				375FFCCA17306CD400B52BF5 /* Message.h */,
+				375FFCCB17306CD500B52BF5 /* Message.m */,
+				375FFCCD1730705B00B52BF5 /* Message+Json.h */,
+				375FFCCE1730705B00B52BF5 /* Message+Json.m */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -283,7 +287,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				375FFCBB172AA74300B52BF5 /* ScheduleTest.m in Sources */,
-				375FFCBE172AA87200B52BF5 /* Admin.m in Sources */,
 				375FFCBF172AA89500B52BF5 /* Student.m in Sources */,
 				375FFCC0172AA89900B52BF5 /* Course.m in Sources */,
 				375FFCC3172AD1E900B52BF5 /* Student+Json.m in Sources */,
@@ -298,10 +301,11 @@
 				37C0EFD01713244500F6250B /* main.m in Sources */,
 				37C0EFE2171324B700F6250B /* Student.m in Sources */,
 				37C0EFE5171361B800F6250B /* Course.m in Sources */,
-				37C0EFEE1716D9E600F6250B /* Admin.m in Sources */,
 				375FFCC5172C5BD800B52BF5 /* Course+Json.m in Sources */,
 				375FFCC6172C5BDD00B52BF5 /* Student+Json.m in Sources */,
 				375FFCC9172C675500B52BF5 /* StudentAndCourseService.m in Sources */,
+				375FFCCC17306CD500B52BF5 /* Message.m in Sources */,
+				375FFCCF1730705C00B52BF5 /* Message+Json.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
