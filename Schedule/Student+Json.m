@@ -20,6 +20,7 @@
     selfAsJson[@"allCourses"] = self.allCourses;
     selfAsJson[@"history"] = self.history;
     selfAsJson[@"english"] = self.english;
+    selfAsJson[@"message"] = self.message;
     
     return selfAsJson;
 }

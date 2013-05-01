@@ -17,6 +17,7 @@
 @property (nonatomic, copy) NSString *allCourses;
 @property (nonatomic, copy) NSString *history;
 @property (nonatomic, copy) NSString *english;
+@property (nonatomic, copy) NSString *message;
 @property (nonatomic, copy) NSString *_id;
 
 -(id)initWithName:(NSString *) name
@@ -24,6 +25,7 @@
                  allCourses:(NSString *) allCourses
             history:(NSString *) history
               english:(NSString *) english
+          message:(NSString *) message
               _id:(NSString *) _id;
 
 
