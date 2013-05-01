@@ -18,7 +18,7 @@
 -(id)initWithReceiver:(NSString *) receiver
              studentsMessage:(NSString *) studentsMessage
        privateMessage:(NSString *) privateMessage
-              _id:(NSString *) _id;
+              _id:(NSString *) _id; 
 
 
 +(id)messageFromJson:(NSDictionary*) messageAsJson;
