@@ -20,13 +20,12 @@
     student.allCourses = studentAsJson[@"allCourses"];
     student.history = studentAsJson[@"history"];
     student.english = studentAsJson[@"english"];
-    student.message = studentAsJson[@"message"];
     return student;
 }
 
 -(id)init 
 {
-    return [self initWithName:@"" type:@"" allCourses:@"" history:@"" english:@"" message:@"" _id:@""];
+    return [self initWithName:@"" type:@"" allCourses:@"" history:@"" english:@"" _id:@""];
 }
 
 -(id)initWithName:(NSString *) name
@@ -34,7 +33,6 @@
             allCourses:(NSString *) allCourses
                history:(NSString *) history
           english:(NSString *) english
-          message:(NSString *) message
               _id:(NSString*) _id;
 {
     self = [super init];
@@ -45,16 +43,10 @@
         self.allCourses = allCourses;
         self.history = history;
         self.english = english;
-        self.message = message;
         self._id = _id;
     }
     return self;
 }
-
-//-(NSUInteger)hash
-//{
-//    return 37 * [self._id hash];
-//}
 
 
 

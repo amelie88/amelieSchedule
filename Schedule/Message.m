@@ -15,6 +15,7 @@
     Message *message = [[self alloc] init];
     message._id = messageAsJson[@"_id"];
     message.receiver = messageAsJson[@"receiver"];
+    message.type = messageAsJson[@"type"];
     message.studentsMessage = messageAsJson[@"studentsMessage"];
     message.privateMessage = messageAsJson[@"privateMessage"];
     return message;
@@ -22,10 +23,11 @@
 
 -(id)init
 {
-    return [self initWithReceiver:@"" studentsMessage:@"" privateMessage:@"" _id:@""];
+    return [self initWithReceiver:@"" type:@"" studentsMessage:@"" privateMessage:@"" _id:@""];
 }
 
 -(id)initWithReceiver:(NSString *) receiver
+                 type:(NSString *) type
              studentsMessage:(NSString *) studentsMessage
        privateMessage:(NSString *) privateMessage
               _id:(NSString*) _id;
@@ -34,6 +36,7 @@
     
     if (self) {
         self.receiver = receiver;
+        self.type = type;
         self.studentsMessage = studentsMessage;
         self.privateMessage = privateMessage;
         self._id = _id;

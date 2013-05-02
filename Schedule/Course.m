@@ -19,13 +19,12 @@
     course.type = courseAsJson[@"type"];
     course.weekday = courseAsJson[@"time"];
     course.time = courseAsJson[@"time"];
-    course.message = courseAsJson[@"message"];
     return course;
 }
 
 -(id)init
 {
-    return[self initWithCourseName:@"" type:@"" weekday:@"" time:@"" teacher:@"" classroom:@"" message:@"" chapter:@"" _id:@""];
+    return[self initWithCourseName:@"" type:@"" weekday:@"" time:@"" teacher:@"" classroom:@"" chapter:@"" _id:@""];
 }
 
 
@@ -35,7 +34,6 @@
                     time:(NSString *)time
                  teacher:(NSString *)teacher
                classroom:(NSString *)classroom
-                 message:(NSString *)message
                  chapter:(NSString *)chapter
                      _id:(NSString *)_id
 
@@ -49,7 +47,6 @@
         self.time = time;
         self.teacher = teacher;
         self.classroom = classroom;
-        self.message = message;
         self.chapter = chapter;
         self._id = _id;
     }

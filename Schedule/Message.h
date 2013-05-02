@@ -11,11 +11,13 @@
 @interface Message : NSObject
 
 @property (nonatomic, copy) NSString *receiver;
+@property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *studentsMessage;
 @property (nonatomic, copy) NSString *privateMessage;
 @property (nonatomic, copy) NSString *_id;
 
 -(id)initWithReceiver:(NSString *) receiver
+                 type:(NSString *) type
              studentsMessage:(NSString *) studentsMessage
        privateMessage:(NSString *) privateMessage
               _id:(NSString *) _id; 

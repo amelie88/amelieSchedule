@@ -22,7 +22,6 @@
     selfAsJson[@"teacher"] = self.teacher;
     selfAsJson[@"classroom"] = self.classroom;
     selfAsJson[@"chapter"] = self.chapter;
-    selfAsJson[@"message"] = self.message;
     
     
     

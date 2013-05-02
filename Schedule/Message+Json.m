@@ -16,6 +16,7 @@
     
     selfAsJson[@"_id"] = self._id;
     selfAsJson[@"receiver"] = self.receiver;
+    selfAsJson[@"type"] = self.type;
     selfAsJson[@"studentsMessage"] = self.studentsMessage;
     selfAsJson[@"privateMessage"] = self.privateMessage;
     

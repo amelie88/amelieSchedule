@@ -17,7 +17,6 @@
 @property(nonatomic, copy) NSString *time;
 @property(nonatomic, copy) NSString *teacher;
 @property(nonatomic, copy) NSString *classroom;
-@property(nonatomic, copy) NSString *message;
 @property(nonatomic, copy) NSString *chapter;
 @property (nonatomic, copy) NSString *_id;
 
@@ -27,7 +26,6 @@
                    time:(NSString *) time
                 teacher:(NSString *) teacher
               classroom:(NSString *) classroom
-                message:(NSString *) message
                 chapter:(NSString *) chapter
                     _id:(NSString *)_id;
 
