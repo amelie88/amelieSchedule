@@ -20,6 +20,8 @@
 		375FFCC9172C675500B52BF5 /* StudentAndCourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */; };
 		375FFCCC17306CD500B52BF5 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCCB17306CD500B52BF5 /* Message.m */; };
 		375FFCCF1730705C00B52BF5 /* Message+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCCE1730705B00B52BF5 /* Message+Json.m */; };
+		375FFCD01732939900B52BF5 /* StudentAndCourseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */; };
+		375FFCD1173293A900B52BF5 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 375FFCCB17306CD500B52BF5 /* Message.m */; };
 		37C0EFCD1713244500F6250B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C0EFCC1713244500F6250B /* Foundation.framework */; };
 		37C0EFD01713244500F6250B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0EFCF1713244500F6250B /* main.m */; };
 		37C0EFD41713244500F6250B /* Schedule.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37C0EFD31713244500F6250B /* Schedule.1 */; };
@@ -160,19 +162,19 @@
 			isa = PBXGroup;
 			children = (
 				37C0EFCF1713244500F6250B /* main.m */,
+				375FFCC7172C675400B52BF5 /* StudentAndCourseService.h */,
+				375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */,
 				37C0EFE0171324B700F6250B /* Student.h */,
 				37C0EFE1171324B700F6250B /* Student.m */,
 				37C0EFE3171361B700F6250B /* Course.h */,
 				37C0EFE4171361B700F6250B /* Course.m */,
+				375FFCCA17306CD400B52BF5 /* Message.h */,
+				375FFCCB17306CD500B52BF5 /* Message.m */,
 				37724659171DADB700B2F227 /* JsonFormat.h */,
 				3772465A171DADD900B2F227 /* Student+Json.h */,
 				3772465B171DADD900B2F227 /* Student+Json.m */,
 				374A526B17216F8900AEF442 /* Course+Json.h */,
 				374A526C17216F8900AEF442 /* Course+Json.m */,
-				375FFCC7172C675400B52BF5 /* StudentAndCourseService.h */,
-				375FFCC8172C675400B52BF5 /* StudentAndCourseService.m */,
-				375FFCCA17306CD400B52BF5 /* Message.h */,
-				375FFCCB17306CD500B52BF5 /* Message.m */,
 				375FFCCD1730705B00B52BF5 /* Message+Json.h */,
 				375FFCCE1730705B00B52BF5 /* Message+Json.m */,
 			);
@@ -291,6 +293,8 @@
 				375FFCC0172AA89900B52BF5 /* Course.m in Sources */,
 				375FFCC3172AD1E900B52BF5 /* Student+Json.m in Sources */,
 				375FFCC4172AD1EC00B52BF5 /* Course+Json.m in Sources */,
+				375FFCD01732939900B52BF5 /* StudentAndCourseService.m in Sources */,
+				375FFCD1173293A900B52BF5 /* Message.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
